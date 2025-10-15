@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Assessment - VUT iEnabler</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="/placeholder.svg?height=60&width=60" alt="VUT Logo" class="sidebar-logo">
+                <h2 class="sidebar-title">iEnabler</h2>
+            </div>
+
+            <div class="user-profile">
+                <img src="/placeholder.svg?height=80&width=80" alt="Profile" class="profile-photo" id="sidebarProfilePhoto">
+                <div class="user-info">
+                    <h3 id="sidebarUserName">Student Name</h3>
+                    <p id="sidebarStudentNumber">220012345</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h4 class="nav-section-title">QUICK LINKS</h4>
+                    <a href="getting-started.html" class="nav-link">Getting Started</a>
+                    <a href="course-registration.html" class="nav-link">Course Registration</a>
+                    <a href="online-assessment.html" class="nav-link active">Online Assessment</a>
+                    <a href="payments.html" class="nav-link">Payments</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">MY ACADEMICS</h4>
+                    <a href="program-of-study.html" class="nav-link">Individual Program of Study</a>
+                    <a href="enrolled-classes.html" class="nav-link">Enrolled Classes</a>
+                    <a href="schedule.html" class="nav-link">Class Schedule</a>
+                    <a href="grades.html" class="nav-link">Grades</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">MY ACCOUNT</h4>
+                    <a href="profile.html" class="nav-link">Student Information</a>
+                    <a href="change-password.html" class="nav-link">Change Password</a>
+                    <a href="hold-orders.html" class="nav-link">Hold Orders</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">BROWSE</h4>
+                    <a href="schedule-of-classes.html" class="nav-link">Schedule of Classes</a>
+                    <a href="degree-curricula.html" class="nav-link">Degree Curricula</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">FORMS</h4>
+                    <a href="tuition-receipt.html" class="nav-link">Tuition Receipt</a>
+                    <a href="change-degree-program.html" class="nav-link">Change Degree Program Form</a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button onclick="logout()" class="btn-secondary">Logout</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="page-header">
+                <h1 class="page-title">Online Assessment</h1>
+                <p class="page-subtitle">View and take your online assessments</p>
+            </header>
+
+            <div class="content-area">
+                <div class="alert alert-info">
+                    <strong>Note:</strong> All assessments must be completed before the deadline. Late submissions will not be accepted.
+                </div>
+
+                <div class="assessment-section">
+                    <h3>Pending Assessments</h3>
+                    <div class="assessment-cards">
+                        <div class="assessment-card pending">
+                            <div class="assessment-header">
+                                <h4>CS 201 - Midterm Exam</h4>
+                                <span class="badge badge-warning">Pending</span>
+                            </div>
+                            <p><strong>Course:</strong> Algorithms and Complexity</p>
+                            <p><strong>Due Date:</strong> March 15, 2025 at 11:59 PM</p>
+                            <p><strong>Duration:</strong> 2 hours</p>
+                            <p><strong>Type:</strong> Multiple Choice & Essay</p>
+                            <button class="btn-primary">Start Assessment</button>
+                        </div>
+
+                        <div class="assessment-card pending">
+                            <div class="assessment-header">
+                                <h4>CS 202 - Project Submission</h4>
+                                <span class="badge badge-warning">Pending</span>
+                            </div>
+                            <p><strong>Course:</strong> Software Engineering</p>
+                            <p><strong>Due Date:</strong> March 20, 2025 at 11:59 PM</p>
+                            <p><strong>Type:</strong> File Upload</p>
+                            <button class="btn-primary">Upload Project</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="assessment-section">
+                    <h3>Completed Assessments</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Assessment</th>
+                                <th>Course</th>
+                                <th>Submitted</th>
+                                <th>Score</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Quiz 1</td>
+                                <td>CS 201</td>
+                                <td>Feb 10, 2025</td>
+                                <td>85%</td>
+                                <td><span class="badge badge-success">Graded</span></td>
+                            </tr>
+                            <tr>
+                                <td>Assignment 1</td>
+                                <td>CS 202</td>
+                                <td>Feb 15, 2025</td>
+                                <td>92%</td>
+                                <td><span class="badge badge-success">Graded</span></td>
+                            </tr>
+                            <tr>
+                                <td>Lab Exercise 1</td>
+                                <td>NET 201</td>
+                                <td>Feb 20, 2025</td>
+                                <td>Pending</td>
+                                <td><span class="badge badge-info">Under Review</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
