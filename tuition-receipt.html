@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuition Receipt - VUT iEnabler</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="/placeholder.svg?height=60&width=60" alt="VUT Logo" class="sidebar-logo">
+                <h2 class="sidebar-title">iEnabler</h2>
+            </div>
+
+            <div class="user-profile">
+                <img src="/placeholder.svg?height=80&width=80" alt="Profile" class="profile-photo" id="sidebarProfilePhoto">
+                <div class="user-info">
+                    <h3 id="sidebarUserName">Student Name</h3>
+                    <p id="sidebarStudentNumber">220012345</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h4 class="nav-section-title">QUICK LINKS</h4>
+                    <a href="getting-started.html" class="nav-link">Getting Started</a>
+                    <a href="course-registration.html" class="nav-link">Course Registration</a>
+                    <a href="online-assessment.html" class="nav-link">Online Assessment</a>
+                    <a href="payments.html" class="nav-link">Payments</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">MY ACADEMICS</h4>
+                    <a href="program-of-study.html" class="nav-link">Individual Program of Study</a>
+                    <a href="enrolled-classes.html" class="nav-link">Enrolled Classes</a>
+                    <a href="schedule.html" class="nav-link">Class Schedule</a>
+                    <a href="grades.html" class="nav-link">Grades</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">MY ACCOUNT</h4>
+                    <a href="profile.html" class="nav-link">Student Information</a>
+                    <a href="change-password.html" class="nav-link">Change Password</a>
+                    <a href="hold-orders.html" class="nav-link">Hold Orders</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">BROWSE</h4>
+                    <a href="schedule-of-classes.html" class="nav-link">Schedule of Classes</a>
+                    <a href="degree-curricula.html" class="nav-link">Degree Curricula</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">FORMS</h4>
+                    <a href="tuition-receipt.html" class="nav-link active">Tuition Receipt</a>
+                    <a href="change-degree-program.html" class="nav-link">Change Degree Program Form</a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button onclick="logout()" class="btn-secondary">Logout</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="page-header">
+                <h1 class="page-title">Tuition Receipt</h1>
+                <p class="page-subtitle">Download your official tuition receipts</p>
+            </header>
+
+            <div class="content-area">
+                <div class="receipt-preview">
+                    <div class="receipt-header">
+                        <img src="/placeholder.svg?height=80&width=80" alt="VUT Logo">
+                        <h2>VAAL UNIVERSITY OF TECHNOLOGY</h2>
+                        <p>Official Tuition Receipt</p>
+                    </div>
+
+                    <div class="receipt-info">
+                        <div class="info-row">
+                            <span class="label">Student Name:</span>
+                            <span class="value" id="receiptStudentName">John Doe</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">Student Number:</span>
+                            <span class="value" id="receiptStudentNumber">220012345</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">Program:</span>
+                            <span class="value">Bachelor of Information Technology</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">Academic Year:</span>
+                            <span class="value">2024-2025</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">Semester:</span>
+                            <span class="value">First Semester</span>
+                        </div>
+                    </div>
+
+                    <table class="receipt-table">
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Tuition Fee</td>
+                                <td>R 24,000.00</td>
+                            </tr>
+                            <tr>
+                                <td>Registration Fee</td>
+                                <td>R 2,500.00</td>
+                            </tr>
+                            <tr>
+                                <td>Library Fee</td>
+                                <td>R 1,000.00</td>
+                            </tr>
+                            <tr>
+                                <td>Student Activity Fee</td>
+                                <td>R 500.00</td>
+                            </tr>
+                            <tr>
+                                <td>Technology Fee</td>
+                                <td>R 500.00</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td><strong>Total Fees</strong></td>
+                                <td><strong>R 28,500.00</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Amount Paid</strong></td>
+                                <td><strong>R 15,000.00</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Balance Due</strong></td>
+                                <td><strong>R 13,500.00</strong></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                    <div class="receipt-footer">
+                        <p>This is an official receipt issued by Vaal University of Technology</p>
+                        <p>Date Issued: <span id="issueDate"></span></p>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn-primary" onclick="window.print()">Print Receipt</button>
+                    <button class="btn-secondary">Download PDF</button>
+                    <button class="btn-secondary" onclick="window.location.href='payments.html'">Back to Payments</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Set current date
+        document.getElementById('issueDate').textContent = new Date().toLocaleDateString('en-ZA');
+        
+        // Load student info
+        const currentStudent = JSON.parse(localStorage.getItem('vut_current_student'));
+        if (currentStudent) {
+            document.getElementById('receiptStudentName').textContent = currentStudent.name;
+            document.getElementById('receiptStudentNumber').textContent = currentStudent.studentNumber;
+        }
+    </script>
+</body>
+</html>
