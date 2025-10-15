@@ -1,141 +1,100 @@
-// Login Form Validation
-document.addEventListener('DOMContentLoaded', function() {
-    const loginForm = document.getElementById('loginForm');
-    
-    if (loginForm) {
-        loginForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            
-            // Basic validation
-            if (!username || !password) {
-                alert('Please fill in all fields');
-                return;
-            }
-            
-            // PIN validation (5 digits)
-            if (!/^\d{5}$/.test(password)) {
-                alert('PIN must be exactly 5 digits');
-                return;
-            }
-            
-            // Simulate login
-            console.log('Login attempt:', { username, password });
-            
-            // Redirect to dashboard
-            window.location.href = 'dashboard.html';
-        });
-    }
-    
-    // Profile Form Handling
-    const profileForm = document.querySelector('.profile-form');
-    
-    if (profileForm) {
-        profileForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            alert('Profile information saved successfully!');
-        });
-    }
-    
-    // Mobile menu toggle (for responsive design)
-    const menuToggle = document.querySelector('.menu-toggle');
-    const headerNav = document.querySelector('.header-nav');
-    
-    if (menuToggle && headerNav) {
-        menuToggle.addEventListener('click', function() {
-            headerNav.classList.toggle('active');
-        });
-    }
-    
-    // Form input animations
-    const formInputs = document.querySelectorAll('input, select');
-    
-    formInputs.forEach(input => {
-        input.addEventListener('focus', function() {
-            this.parentElement.classList.add('focused');
-        });
-        
-        input.addEventListener('blur', function() {
-            if (!this.value) {
-                this.parentElement.classList.remove('focused');
-            }
-        });
-    });
-    
-    // Schedule grid interactions
-    const classBlocks = document.querySelectorAll('.class-block');
-    
-    classBlocks.forEach(block => {
-        block.addEventListener('click', function() {
-            const courseName = this.querySelector('strong').textContent;
-            const courseDetails = Array.from(this.querySelectorAll('span'))
-                .map(span => span.textContent)
-                .join('\n');
-            
-            alert(`${courseName}\n\n${courseDetails}`);
-        });
-    });
-});
+// Initialize demo student data
+function initializeDemoData() {
+  const students = JSON.parse(localStorage.getItem("vut_students") || "[]")
 
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const target = document.querySelector(this.getAttribute('href'));
-        
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
-
-// Auto-save functionality for forms
-let autoSaveTimer;
-
-function autoSave() {
-    const formData = {};
-    const inputs = document.querySelectorAll('input, select, textarea');
-    
-    inputs.forEach(input => {
-        if (input.name) {
-            formData[input.name] = input.value;
-        }
-    });
-    
-    localStorage.setItem('vut_form_data', JSON.stringify(formData));
-    console.log('Form data auto-saved');
+  if (students.length === 0) {
+    const demoStudent = {
+      studentNumber: "220012345",
+      name: "John Doe",
+      email: "john.doe@vut.ac.za",
+      pin: "12345",
+      photo: null,
+      profile: {
+        email: "john.doe@vut.ac.za",
+        mobile: "0123456789",
+        city: "Vanderbijlpark",
+        province: "Gauteng",
+        country: "South Africa",
+      },
+    }
+    localStorage.setItem("vut_students", JSON.stringify([demoStudent]))
+  }
 }
 
-// Load saved form data
-function loadSavedData() {
-    const savedData = localStorage.getItem('vut_form_data');
-    
-    if (savedData) {
-        const formData = JSON.parse(savedData);
-        
-        Object.keys(formData).forEach(name => {
-            const input = document.querySelector(`[name="${name}"]`);
-            if (input) {
-                input.value = formData[name];
-            }
-        });
-    }
+// Call on page load
+initializeDemoData()
+
+// Login function
+function handleLogin(event) {
+  if (event) event.preventDefault()
+
+  const username = document.getElementById("username").value
+  const password = document.getElementById("password").value
+
+  const students = JSON.parse(localStorage.getItem("vut_students") || "[]")
+  const student = students.find((s) => s.studentNumber === username && s.pin === password)
+
+  if (student) {
+    localStorage.setItem("vut_current_student", JSON.stringify(student))
+    window.location.href = "dashboard.html"
+  } else {
+    alert("Invalid student number or PIN")
+  }
 }
 
-// Auto-save on input change
-document.addEventListener('input', function(e) {
-    if (e.target.matches('input, select, textarea')) {
-        clearTimeout(autoSaveTimer);
-        autoSaveTimer = setTimeout(autoSave, 2000);
-    }
-});
+// Logout function
+function logout() {
+  localStorage.removeItem("vut_current_student")
+  window.location.href = "index.html"
+}
 
-// Load saved data on page load
-window.addEventListener('load', loadSavedData);
+// Check authentication
+function checkAuth() {
+  const currentStudent = JSON.parse(localStorage.getItem("vut_current_student"))
+  if (
+    !currentStudent &&
+    !window.location.pathname.includes("index.html") &&
+    !window.location.pathname.includes("forgot-password.html")
+  ) {
+    window.location.href = "index.html"
+  }
+  return currentStudent
+}
+
+// Load user profile in sidebar
+function loadUserProfile() {
+  const currentStudent = checkAuth()
+  if (currentStudent) {
+    const nameElements = document.querySelectorAll("#sidebarStudentName, #sidebarUserName, #photoStudentName")
+    const numberElements = document.querySelectorAll("#sidebarStudentNumber, #photoStudentNumber")
+    const photoElements = document.querySelectorAll("#sidebarProfilePhoto, #profilePhoto")
+
+    nameElements.forEach((el) => {
+      if (el) el.textContent = currentStudent.name
+    })
+
+    numberElements.forEach((el) => {
+      if (el) el.textContent = currentStudent.studentNumber
+    })
+
+    photoElements.forEach((el) => {
+      if (el && currentStudent.photo) {
+        el.src = currentStudent.photo
+      }
+    })
+  }
+}
+
+// Initialize on page load
+document.addEventListener("DOMContentLoaded", () => {
+  // Handle login form
+  const loginForm = document.getElementById("loginForm")
+  if (loginForm) {
+    loginForm.addEventListener("submit", handleLogin)
+  }
+
+  // Load user profile if on authenticated page
+  if (!window.location.pathname.includes("index.html") && !window.location.pathname.includes("forgot-password.html")) {
+    loadUserProfile()
+  }
+})
