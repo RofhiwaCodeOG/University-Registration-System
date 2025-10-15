@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Degree Curricula - VUT iEnabler</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="/placeholder.svg?height=60&width=60" alt="VUT Logo" class="sidebar-logo">
+                <h2 class="sidebar-title">iEnabler</h2>
+            </div>
+
+            <div class="user-profile">
+                <img src="/placeholder.svg?height=80&width=80" alt="Profile" class="profile-photo" id="sidebarProfilePhoto">
+                <div class="user-info">
+                    <h3 id="sidebarUserName">Student Name</h3>
+                    <p id="sidebarStudentNumber">220012345</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h4 class="nav-section-title">QUICK LINKS</h4>
+                    <a href="getting-started.html" class="nav-link">Getting Started</a>
+                    <a href="course-registration.html" class="nav-link">Course Registration</a>
+                    <a href="online-assessment.html" class="nav-link">Online Assessment</a>
+                    <a href="payments.html" class="nav-link">Payments</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">MY ACADEMICS</h4>
+                    <a href="program-of-study.html" class="nav-link">Individual Program of Study</a>
+                    <a href="enrolled-classes.html" class="nav-link">Enrolled Classes</a>
+                    <a href="schedule.html" class="nav-link">Class Schedule</a>
+                    <a href="grades.html" class="nav-link">Grades</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">MY ACCOUNT</h4>
+                    <a href="profile.html" class="nav-link">Student Information</a>
+                    <a href="change-password.html" class="nav-link">Change Password</a>
+                    <a href="hold-orders.html" class="nav-link">Hold Orders</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">BROWSE</h4>
+                    <a href="schedule-of-classes.html" class="nav-link">Schedule of Classes</a>
+                    <a href="degree-curricula.html" class="nav-link active">Degree Curricula</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">FORMS</h4>
+                    <a href="tuition-receipt.html" class="nav-link">Tuition Receipt</a>
+                    <a href="change-degree-program.html" class="nav-link">Change Degree Program Form</a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button onclick="logout()" class="btn-secondary">Logout</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="page-header">
+                <h1 class="page-title">Degree Curricula</h1>
+                <p class="page-subtitle">Browse degree programs and requirements</p>
+            </header>
+
+            <div class="content-area">
+                <div class="search-filters">
+                    <select class="filter-select">
+                        <option value="">All Faculties</option>
+                        <option value="ICT">Information and Communication Technology</option>
+                        <option value="ENG">Engineering</option>
+                        <option value="BUS">Business</option>
+                        <option value="SCI">Applied Sciences</option>
+                    </select>
+                    <input type="text" placeholder="Search programs..." class="search-input">
+                </div>
+
+                <div class="program-cards">
+                    <div class="program-card">
+                        <h3>Bachelor of Information Technology</h3>
+                        <p><strong>Faculty:</strong> Information and Communication Technology</p>
+                        <p><strong>Duration:</strong> 4 years</p>
+                        <p><strong>Total Credits:</strong> 120</p>
+                        <p class="program-description">
+                            This program prepares students for careers in software development, systems analysis, and IT management.
+                        </p>
+                        <button class="btn-primary">View Curriculum</button>
+                    </div>
+
+                    <div class="program-card">
+                        <h3>Bachelor of Computer Science</h3>
+                        <p><strong>Faculty:</strong> Information and Communication Technology</p>
+                        <p><strong>Duration:</strong> 4 years</p>
+                        <p><strong>Total Credits:</strong> 120</p>
+                        <p class="program-description">
+                            Focuses on theoretical foundations of computing, algorithms, and software engineering principles.
+                        </p>
+                        <button class="btn-primary">View Curriculum</button>
+                    </div>
+
+                    <div class="program-card">
+                        <h3>Diploma in Information Technology</h3>
+                        <p><strong>Faculty:</strong> Information and Communication Technology</p>
+                        <p><strong>Duration:</strong> 3 years</p>
+                        <p><strong>Total Credits:</strong> 90</p>
+                        <p class="program-description">
+                            Provides practical skills in programming, networking, and database management.
+                        </p>
+                        <button class="btn-primary">View Curriculum</button>
+                    </div>
+
+                    <div class="program-card">
+                        <h3>Bachelor of Engineering in Software Engineering</h3>
+                        <p><strong>Faculty:</strong> Engineering</p>
+                        <p><strong>Duration:</strong> 4 years</p>
+                        <p><strong>Total Credits:</strong> 128</p>
+                        <p class="program-description">
+                            Combines engineering principles with software development for large-scale systems.
+                        </p>
+                        <button class="btn-primary">View Curriculum</button>
+                    </div>
+
+                    <div class="program-card">
+                        <h3>Bachelor of Business Information Systems</h3>
+                        <p><strong>Faculty:</strong> Business</p>
+                        <p><strong>Duration:</strong> 4 years</p>
+                        <p><strong>Total Credits:</strong> 120</p>
+                        <p class="program-description">
+                            Integrates business management with information technology for organizational solutions.
+                        </p>
+                        <button class="btn-primary">View Curriculum</button>
+                    </div>
+
+                    <div class="program-card">
+                        <h3>Diploma in Network Engineering</h3>
+                        <p><strong>Faculty:</strong> Information and Communication Technology</p>
+                        <p><strong>Duration:</strong> 3 years</p>
+                        <p><strong>Total Credits:</strong> 90</p>
+                        <p class="program-description">
+                            Specializes in network design, implementation, and security.
+                        </p>
+                        <button class="btn-primary">View Curriculum</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
