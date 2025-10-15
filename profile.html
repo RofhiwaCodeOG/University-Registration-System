@@ -1,182 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VUT iEnabler - Student Information</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header class="main-header">
-        <div class="header-content">
-            <div class="header-left">
-                <img src="images/logo.png" alt="VUT Logo" class="header-logo">
-                <span class="header-title">VAAL UNIVERSITY OF TECHNOLOGY</span>
-            </div>
-            <nav class="header-nav">
-                <a href="dashboard.html" class="nav-link">iEnabler</a>
-                <a href="schedule.html" class="nav-link">Class Schedules</a>
-                <a href="profile.html" class="nav-link active">My Account</a>
-                <a href="index.html" class="nav-link">Log Out</a>
-            </nav>
+<!-- Adding profile photo upload functionality -->
+<div class="profile-photo-section">
+    <h3>Profile Photo</h3>
+    <div class="photo-upload-container">
+        <img src="/images/logo.png" alt="Profile Photo" id="profilePhotoPreview" class="profile-photo-large">
+        <div class="photo-upload-controls">
+            <input type="file" id="photoUpload" accept="image/*" style="display: none;">
+            <button type="button" class="btn-primary" onclick="document.getElementById('photoUpload').click()">
+                Change Photo
+            </button>
+            <p class="text-muted">Accepted formats: JPG, PNG (Max 2MB)</p>
         </div>
-        <div class="accent-stripe"></div>
-    </header>
+    </div>
+</div>
+
+
+<script>
+document.getElementById('photoUpload').addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (!file) return;
     
-    <main class="profile-main">
-        <div class="profile-container">
-            <aside class="sidebar">
-                <div class="sidebar-profile">
-                    <img src="https://placeholder.svg?height=80&width=80" alt="Student Photo" class="profile-photo">
-                    <h3 class="profile-name">Student Name</h3>
-                    <p class="profile-id">Student ID: 123456789</p>
-                </div>
-                
-                <nav class="sidebar-nav">
-                    <h4 class="nav-section-title">MY ACADEMICS</h4>
-                    <a href="#" class="sidebar-link">Individual Program of Study</a>
-                    <a href="#" class="sidebar-link">Enrolled Classes</a>
-                    <a href="schedule.html" class="sidebar-link">Class Schedule</a>
-                    <a href="#" class="sidebar-link">Grades</a>
-                    
-                    <h4 class="nav-section-title">MY ACCOUNT</h4>
-                    <a href="#" class="sidebar-link">Google Account</a>
-                    <a href="profile.html" class="sidebar-link active">Student Information</a>
-                    <a href="#" class="sidebar-link">Change Password</a>
-                    <a href="#" class="sidebar-link">Hold Orders</a>
-                    
-                    <h4 class="nav-section-title">BROWSE</h4>
-                    <a href="#" class="sidebar-link">Schedule of Classes</a>
-                    <a href="#" class="sidebar-link">Degree Curricula</a>
-                    
-                    <h4 class="nav-section-title">FORMS</h4>
-                    <a href="#" class="sidebar-link">Tuition Receipt</a>
-                    <a href="#" class="sidebar-link">Change Degree Program Form</a>
-                </nav>
-            </aside>
+    // Validate file size (2MB max)
+    if (file.size > 2 * 1024 * 1024) {
+        alert('File size must be less than 2MB');
+        return;
+    }
+    
+    // Validate file type
+    if (!file.type.match('image.*')) {
+        alert('Please select an image file');
+        return;
+    }
+    
+    const reader = new FileReader();
+    reader.onload = function(event) {
+        const photoDataUrl = event.target.result;
+        
+        // Update preview
+        document.getElementById('profilePhotoPreview').src = photoDataUrl;
+        
+        // Save to data manager
+        const currentUser = dataManager.getCurrentUser();
+        if (currentUser) {
+            dataManager.updateProfilePhoto(currentUser.studentNumber, photoDataUrl);
             
-            <div class="content-area">
-                <div class="page-header">
-                    <h1 class="page-title">Student Information</h1>
-                    <p class="page-subtitle">MY ACCOUNT</p>
-                </div>
-                
-                <form class="profile-form">
-                    <section class="form-section">
-                        <h2 class="form-section-title">Contact Details</h2>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" placeholder="student@vut.ac.za">
-                            </div>
-                            <div class="form-group">
-                                <label for="mobile">Mobile No.</label>
-                                <input type="tel" id="mobile" name="mobile" placeholder="+27 12 345 6789">
-                            </div>
-                        </div>
-                    </section>
-                    
-                    <section class="form-section">
-                        <h2 class="form-section-title">Address</h2>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="unit">Unit No.</label>
-                                <input type="text" id="unit" name="unit">
-                            </div>
-                            <div class="form-group form-group-wide">
-                                <label for="building">Building</label>
-                                <input type="text" id="building" name="building">
-                            </div>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="street-no">Street No.</label>
-                                <input type="text" id="street-no" name="street-no">
-                            </div>
-                            <div class="form-group">
-                                <label for="street">Street</label>
-                                <input type="text" id="street" name="street">
-                            </div>
-                            <div class="form-group">
-                                <label for="suburb">Suburb</label>
-                                <input type="text" id="suburb" name="suburb">
-                            </div>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group form-group-wide">
-                                <label for="municipality">Municipality</label>
-                                <input type="text" id="municipality" name="municipality">
-                            </div>
-                            <div class="form-group">
-                                <label for="city">City</label>
-                                <input type="text" id="city" name="city">
-                            </div>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="zip">ZIP Code</label>
-                                <input type="text" id="zip" name="zip">
-                            </div>
-                            <div class="form-group">
-                                <label for="province">Province</label>
-                                <select id="province" name="province">
-                                    <option value="">Select Province</option>
-                                    <option value="gauteng">Gauteng</option>
-                                    <option value="free-state">Free State</option>
-                                    <option value="limpopo">Limpopo</option>
-                                    <option value="mpumalanga">Mpumalanga</option>
-                                    <option value="north-west">North West</option>
-                                    <option value="northern-cape">Northern Cape</option>
-                                    <option value="western-cape">Western Cape</option>
-                                    <option value="eastern-cape">Eastern Cape</option>
-                                    <option value="kwazulu-natal">KwaZulu-Natal</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="country">Country</label>
-                                <select id="country" name="country">
-                                    <option value="south-africa">South Africa</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group form-group-wide">
-                                <label for="contact-person">Contact Person</label>
-                                <input type="text" id="contact-person" name="contact-person">
-                            </div>
-                            <div class="form-group">
-                                <label for="contact-email">Email</label>
-                                <input type="email" id="contact-email" name="contact-email">
-                            </div>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="contact-mobile">Mobile No.</label>
-                                <input type="tel" id="contact-mobile" name="contact-mobile">
-                            </div>
-                            <div class="form-group">
-                                <label for="landline">Landline</label>
-                                <input type="tel" id="landline" name="landline">
-                            </div>
-                        </div>
-                        
-                        <button type="button" class="btn-secondary">Add Another Address</button>
-                    </section>
-                    
-                    <div class="form-actions">
-                        <button type="submit" class="btn-primary">Save Changes</button>
-                        <button type="button" class="btn-outline">Cancel</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </main>
-    
-    <script src="script.js"></script>
-</body>
-</html>
+            // Update current session
+            currentUser.profilePhoto = photoDataUrl;
+            dataManager.setCurrentUser(currentUser);
+            
+            // Update sidebar photo
+            document.getElementById('sidebarProfilePhoto').src = photoDataUrl;
+            
+            alert('Profile photo updated successfully!');
+        }
+    };
+    reader.readAsDataURL(file);
+});
+</script>

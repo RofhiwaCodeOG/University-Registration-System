@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grades - VUT iEnabler</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="/images/logo.png" alt="VUT Logo" class="sidebar-logo">
+                <h2 class="sidebar-title">iEnabler</h2>
+            </div>
+
+            <div class="user-profile">
+                <img src="/images/logo.png" alt="Profile" class="profile-photo" id="sidebarProfilePhoto">
+                <div class="user-info">
+                    <h3 id="sidebarUserName">Student Name</h3>
+                    <p id="sidebarStudentNumber">220012345</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h4 class="nav-section-title">QUICK LINKS</h4>
+                    <a href="getting-started.html" class="nav-link">Getting Started</a>
+                    <a href="course-registration.html" class="nav-link">Course Registration</a>
+                    <a href="online-assessment.html" class="nav-link">Online Assessment</a>
+                    <a href="payments.html" class="nav-link">Payments</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">MY ACADEMICS</h4>
+                    <a href="program-of-study.html" class="nav-link">Individual Program of Study</a>
+                    <a href="enrolled-classes.html" class="nav-link">Enrolled Classes</a>
+                    <a href="schedule.html" class="nav-link">Class Schedule</a>
+                    <a href="grades.html" class="nav-link active">Grades</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">MY ACCOUNT</h4>
+                    <a href="profile.html" class="nav-link">Student Information</a>
+                    <a href="change-password.html" class="nav-link">Change Password</a>
+                    <a href="hold-orders.html" class="nav-link">Hold Orders</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">BROWSE</h4>
+                    <a href="schedule-of-classes.html" class="nav-link">Schedule of Classes</a>
+                    <a href="degree-curricula.html" class="nav-link">Degree Curricula</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">FORMS</h4>
+                    <a href="tuition-receipt.html" class="nav-link">Tuition Receipt</a>
+                    <a href="change-degree-program.html" class="nav-link">Change Degree Program Form</a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button onclick="logout()" class="btn-secondary">Logout</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="page-header">
+                <h1 class="page-title">Grades</h1>
+                <p class="page-subtitle">View your academic performance</p>
+            </header>
+
+            <div class="content-area">
+                <div class="academic-summary">
+                    <div class="summary-card">
+                        <h4>Cumulative GPA</h4>
+                        <p class="gpa-value">3.45</p>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Credits Earned</h4>
+                        <p class="gpa-value">180</p>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Current Semester</h4>
+                        <p class="gpa-value">First 2025</p>
+                    </div>
+                </div>
+
+                <div class="grades-filter">
+                    <label for="semesterFilter">Select Semester:</label>
+                    <select id="semesterFilter" class="filter-select">
+                        <option value="all">All Semesters</option>
+                        <option value="2024-2">Second Semester 2024</option>
+                        <option value="2024-1">First Semester 2024</option>
+                        <option value="2023-2">Second Semester 2023</option>
+                    </select>
+                </div>
+
+                <div class="grades-section">
+                    <h3>Second Semester 2024</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Course Code</th>
+                                <th>Course Name</th>
+                                <th>Credits</th>
+                                <th>Grade</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="gradesTableBody">
+                            <!-- Grades will be loaded here -->
+                        </tbody>
+                    </table>
+                    <div class="semester-summary">
+                        <p><strong>Semester GPA:</strong> 3.52</p>
+                        <p><strong>Credits Earned:</strong> 60</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="data-manager.js"></script>
+    <script src="script.js"></script>
+    <script>
+        function loadGrades() {
+            const grades = dataManager.getGrades();
+            const tbody = document.getElementById('gradesTableBody');
+            
+            tbody.innerHTML = grades.map(grade => `
+                <tr>
+                    <td>${grade.code}</td>
+                    <td>${grade.name}</td>
+                    <td>15</td>
+                    <td><strong>${grade.grade}%</strong></td>
+                    <td><span class="badge badge-${grade.status === 'Pass' ? 'success' : 'danger'}">${grade.status}</span></td>
+                </tr>
+            `).join('');
+        }
+        
+        loadGrades();
+    </script>
+</body>
+</html>

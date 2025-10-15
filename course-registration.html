@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Registration - VUT iEnabler</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <!-- Sidebar content same as getting-started.html -->
+            <div class="sidebar-header">
+                <img src="/images/logo.png" alt="VUT Logo" class="sidebar-logo">
+                <h2 class="sidebar-title">iEnabler</h2>
+            </div>
+
+            <div class="user-profile">
+                <img src="/images/logo.png" alt="Profile" class="profile-photo" id="sidebarProfilePhoto">
+                <div class="user-info">
+                    <h3 id="sidebarUserName">Student Name</h3>
+                    <p id="sidebarStudentNumber">220012345</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h4 class="nav-section-title">QUICK LINKS</h4>
+                    <a href="getting-started.html" class="nav-link">Getting Started</a>
+                    <a href="course-registration.html" class="nav-link active">Course Registration</a>
+                    <a href="online-assessment.html" class="nav-link">Online Assessment</a>
+                    <a href="payments.html" class="nav-link">Payments</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">MY ACADEMICS</h4>
+                    <a href="program-of-study.html" class="nav-link">Individual Program of Study</a>
+                    <a href="enrolled-classes.html" class="nav-link">Enrolled Classes</a>
+                    <a href="schedule.html" class="nav-link">Class Schedule</a>
+                    <a href="grades.html" class="nav-link">Grades</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">MY ACCOUNT</h4>
+                    <a href="profile.html" class="nav-link">Student Information</a>
+                    <a href="change-password.html" class="nav-link">Change Password</a>
+                    <a href="hold-orders.html" class="nav-link">Hold Orders</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">BROWSE</h4>
+                    <a href="schedule-of-classes.html" class="nav-link">Schedule of Classes</a>
+                    <a href="degree-curricula.html" class="nav-link">Degree Curricula</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">FORMS</h4>
+                    <a href="tuition-receipt.html" class="nav-link">Tuition Receipt</a>
+                    <a href="change-degree-program.html" class="nav-link">Change Degree Program Form</a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button onclick="logout()" class="btn-secondary">Logout</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="page-header">
+                <h1 class="page-title">Course Registration</h1>
+                <p class="page-subtitle">Register for courses - First Semester 2025</p>
+            </header>
+
+            <div class="content-area">
+                <div class="alert alert-info">
+                    <strong>Registration Period:</strong> January 15 - February 15, 2025
+                </div>
+
+                <div class="registration-summary">
+                    <h3>Registration Summary</h3>
+                    <div class="summary-grid">
+                        <div class="summary-item">
+                            <span class="summary-label">Total Credits:</span>
+                            <span class="summary-value" id="totalCredits">0</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Courses Selected:</span>
+                            <span class="summary-value" id="coursesSelected">0</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Status:</span>
+                            <span class="summary-value status-pending">Pending</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-search">
+                    <h3>Search Courses</h3>
+                    <div class="search-filters">
+                        <input type="text" id="courseSearch" placeholder="Search by course code or name..." class="search-input">
+                        <select id="departmentFilter" class="filter-select">
+                            <option value="">All Departments</option>
+                            <option value="CS">Computer Science</option>
+                            <option value="IT">Information Technology</option>
+                            <option value="ENG">Engineering</option>
+                            <option value="BUS">Business</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="courses-table">
+                    <h3>Available Courses</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Course Code</th>
+                                <th>Course Name</th>
+                                <th>Credits</th>
+                                <th>Schedule</th>
+                                <th>Seats Available</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="coursesTableBody">
+                            <tr>
+                                <td>CS301</td>
+                                <td>Data Structures and Algorithms</td>
+                                <td>15</td>
+                                <td>Mon/Wed 10:00-12:00</td>
+                                <td><span class="badge badge-success">25</span></td>
+                                <td><button class="btn-small btn-primary" onclick="enrollCourse('CS301')">Enroll</button></td>
+                            </tr>
+                            <tr>
+                                <td>CS302</td>
+                                <td>Database Management Systems</td>
+                                <td>15</td>
+                                <td>Tue/Thu 14:00-16:00</td>
+                                <td><span class="badge badge-success">18</span></td>
+                                <td><button class="btn-small btn-primary" onclick="enrollCourse('CS302')">Enroll</button></td>
+                            </tr>
+                            <tr>
+                                <td>CS303</td>
+                                <td>Web Development</td>
+                                <td>15</td>
+                                <td>Mon/Wed 14:00-16:00</td>
+                                <td><span class="badge badge-warning">5</span></td>
+                                <td><button class="btn-small btn-primary" onclick="enrollCourse('CS303')">Enroll</button></td>
+                            </tr>
+                            <tr>
+                                <td>CS304</td>
+                                <td>Software Engineering</td>
+                                <td>15</td>
+                                <td>Tue/Thu 10:00-12:00</td>
+                                <td><span class="badge badge-danger">Full</span></td>
+                                <td><button class="btn-small" disabled>Waitlist</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="enrolled-courses">
+                    <h3>Your Enrolled Courses</h3>
+                    <div id="enrolledCoursesList" class="course-cards">
+                        <p class="text-muted">No courses enrolled yet. Select courses from the available list above.</p>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn-secondary" onclick="window.location.href='dashboard.html'">Cancel</button>
+                    <button class="btn-primary" onclick="submitRegistration()">Submit Registration</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="data-manager.js"></script>
+    <script src="script.js"></script>
+    <script>
+        let enrolledCourses = [];
+        
+        function enrollCourse(courseCode) {
+            const course = {
+                code: courseCode,
+                name: document.querySelector(`td:first-child:contains('${courseCode}')`).nextElementSibling.textContent,
+                credits: 15
+            };
+            
+            enrolledCourses.push(course);
+            updateEnrolledCourses();
+            updateSummary();
+        }
+        
+        function updateEnrolledCourses() {
+            const container = document.getElementById('enrolledCoursesList');
+            if (enrolledCourses.length === 0) {
+                container.innerHTML = '<p class="text-muted">No courses enrolled yet.</p>';
+                return;
+            }
+            
+            container.innerHTML = enrolledCourses.map(course => `
+                <div class="course-card">
+                    <h4>${course.code}</h4>
+                    <p>${course.name}</p>
+                    <span class="badge">${course.credits} Credits</span>
+                    <button class="btn-small btn-danger" onclick="removeCourse('${course.code}')">Remove</button>
+                </div>
+            `).join('');
+        }
+        
+        function removeCourse(courseCode) {
+            enrolledCourses = enrolledCourses.filter(c => c.code !== courseCode);
+            updateEnrolledCourses();
+            updateSummary();
+        }
+        
+        function updateSummary() {
+            const totalCredits = enrolledCourses.reduce((sum, course) => sum + course.credits, 0);
+            document.getElementById('totalCredits').textContent = totalCredits;
+            document.getElementById('coursesSelected').textContent = enrolledCourses.length;
+        }
+        
+        function submitRegistration() {
+            if (enrolledCourses.length === 0) {
+                alert('Please select at least one course to register.');
+                return;
+            }
+            
+            alert('Registration submitted successfully! You will receive a confirmation email shortly.');
+            window.location.href = 'enrolled-classes.html';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started - VUT iEnabler</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="/images/logo.png" alt="VUT Logo" class="sidebar-logo">
+                <h2 class="sidebar-title">iEnabler</h2>
+            </div>
+
+            <div class="user-profile">
+                <img src="/images/logo.png" alt="Profile" class="profile-photo" id="sidebarProfilePhoto">
+                <div class="user-info">
+                    <h3 id="sidebarUserName">Student Name</h3>
+                    <p id="sidebarStudentNumber">220012345</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h4 class="nav-section-title">QUICK LINKS</h4>
+                    <a href="getting-started.html" class="nav-link active">Getting Started</a>
+                    <a href="course-registration.html" class="nav-link">Course Registration</a>
+                    <a href="online-assessment.html" class="nav-link">Online Assessment</a>
+                    <a href="payments.html" class="nav-link">Payments</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">MY ACADEMICS</h4>
+                    <a href="program-of-study.html" class="nav-link">Individual Program of Study</a>
+                    <a href="enrolled-classes.html" class="nav-link">Enrolled Classes</a>
+                    <a href="schedule.html" class="nav-link">Class Schedule</a>
+                    <a href="grades.html" class="nav-link">Grades</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">MY ACCOUNT</h4>
+                    <a href="profile.html" class="nav-link">Student Information</a>
+                    <a href="change-password.html" class="nav-link">Change Password</a>
+                    <a href="hold-orders.html" class="nav-link">Hold Orders</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">BROWSE</h4>
+                    <a href="schedule-of-classes.html" class="nav-link">Schedule of Classes</a>
+                    <a href="degree-curricula.html" class="nav-link">Degree Curricula</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">FORMS</h4>
+                    <a href="tuition-receipt.html" class="nav-link">Tuition Receipt</a>
+                    <a href="change-degree-program.html" class="nav-link">Change Degree Program Form</a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button onclick="logout()" class="btn-secondary">Logout</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="page-header">
+                <h1 class="page-title">Getting Started</h1>
+                <p class="page-subtitle">Welcome to VUT iEnabler</p>
+            </header>
+
+            <div class="content-area">
+                <div class="info-card">
+                    <h2>Welcome to the VUT iEnabler System</h2>
+                    <p>This guide will help you navigate through the registration and enrollment process.</p>
+                </div>
+
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3>Check Your Program of Study</h3>
+                        <p>Review your individual program of study to understand your course requirements and academic progress.</p>
+                        <a href="program-of-study.html" class="btn-link">View Program →</a>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3>Register for Courses</h3>
+                        <p>Browse available courses and register for the upcoming semester. Make sure to check prerequisites and time slots.</p>
+                        <a href="course-registration.html" class="btn-link">Register Now →</a>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3>Complete Payment</h3>
+                        <p>View your fee statement and make payments online. Ensure all fees are paid before the deadline.</p>
+                        <a href="payments.html" class="btn-link">Make Payment →</a>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h3>View Your Schedule</h3>
+                        <p>Check your class schedule to see when and where your classes will be held.</p>
+                        <a href="schedule.html" class="btn-link">View Schedule →</a>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h2>Important Information</h2>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <h4>Registration Period</h4>
+                            <p>First Semester: January 15 - February 15</p>
+                            <p>Second Semester: July 15 - August 15</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>Payment Deadlines</h4>
+                            <p>Full payment or payment arrangement must be made before the start of semester.</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>Academic Calendar</h4>
+                            <p>View the full academic calendar for important dates and deadlines.</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>Support</h4>
+                            <p>Contact Student Services: 016 950 9000</p>
+                            <p>Email: studentservices@vut.ac.za</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="data-manager.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
