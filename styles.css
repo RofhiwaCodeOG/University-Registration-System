@@ -1050,3 +1050,352 @@ body {
   font-size: 0.875rem;
 }
 
+/* Profile Photo Upload */
+.profile-photo-section {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.profile-photo-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #1e3a8a;
+    background: #fff;
+}
+
+.photo-upload-btn {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: #f59e0b;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.photo-upload-btn:hover {
+    background: #d97706;
+}
+
+#photoInput {
+    display: none;
+}
+
+/* Class Cards */
+.class-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.class-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f59e0b;
+}
+
+.class-header h4 {
+    margin: 0;
+    color: #1e3a8a;
+    font-size: 18px;
+}
+
+.class-credits {
+    background: #1e3a8a;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.class-details {
+    margin-bottom: 15px;
+}
+
+.detail-row {
+    display: flex;
+    padding: 8px 0;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.detail-label {
+    font-weight: 600;
+    color: #4b5563;
+    width: 150px;
+}
+
+.detail-value {
+    color: #1f2937;
+}
+
+.class-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.status-enrolled {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.status-pending {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.status-dropped {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+/* Grade Badges */
+.grade-badge {
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.grade-a {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.grade-b {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.grade-c {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.grade-f {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+/* GPA Summary */
+.gpa-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.gpa-card {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.gpa-card h3 {
+    margin: 0 0 15px 0;
+    font-size: 16px;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+.gpa-value {
+    font-size: 48px;
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+.gpa-card p {
+    margin: 10px 0 0 0;
+    opacity: 0.8;
+    font-size: 14px;
+}
+
+/* Grade Legend */
+.grade-legend {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Semester Selector */
+.semester-selector {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.semester-selector label {
+    font-weight: 600;
+    color: #1e3a8a;
+}
+
+.semester-selector select {
+    flex: 1;
+    max-width: 400px;
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* Enrollment Summary */
+.enrollment-summary {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.enrollment-summary h4 {
+    margin: 0 0 15px 0;
+    color: #1e3a8a;
+}
+
+/* Program Info */
+.program-info {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border-left: 4px solid #f59e0b;
+}
+
+.program-info h3 {
+    margin: 0 0 10px 0;
+    color: #1e3a8a;
+}
+
+.program-info p {
+    margin: 5px 0;
+    color: #4b5563;
+}
+
+/* Year Section */
+.year-section {
+    margin-bottom: 40px;
+}
+
+.year-section h3 {
+    color: #1e3a8a;
+    font-size: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #f59e0b;
+}
+
+.year-section h4 {
+    color: #4b5563;
+    font-size: 16px;
+    margin: 20px 0 15px 0;
+}
+
+/* Program Summary */
+.program-summary {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    margin-top: 30px;
+}
+
+.program-summary h3 {
+    margin: 0 0 20px 0;
+    color: white;
+}
+
+/* Summary Grid */
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.summary-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.summary-label {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.summary-value {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* Reset Instructions */
+.reset-instructions {
+    color: #6b7280;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gpa-summary {
+        grid-template-columns: 1fr;
+    }
+    
+    .class-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .class-actions {
+        flex-direction: column;
+    }
+    
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+}
