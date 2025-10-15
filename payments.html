@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payments - VUT iEnabler</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="/placeholder.svg?height=60&width=60" alt="VUT Logo" class="sidebar-logo">
+                <h2 class="sidebar-title">iEnabler</h2>
+            </div>
+
+            <div class="user-profile">
+                <img src="/placeholder.svg?height=80&width=80" alt="Profile" class="profile-photo" id="sidebarProfilePhoto">
+                <div class="user-info">
+                    <h3 id="sidebarUserName">Student Name</h3>
+                    <p id="sidebarStudentNumber">220012345</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h4 class="nav-section-title">QUICK LINKS</h4>
+                    <a href="getting-started.html" class="nav-link">Getting Started</a>
+                    <a href="course-registration.html" class="nav-link">Course Registration</a>
+                    <a href="online-assessment.html" class="nav-link">Online Assessment</a>
+                    <a href="payments.html" class="nav-link active">Payments</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">MY ACADEMICS</h4>
+                    <a href="program-of-study.html" class="nav-link">Individual Program of Study</a>
+                    <a href="enrolled-classes.html" class="nav-link">Enrolled Classes</a>
+                    <a href="schedule.html" class="nav-link">Class Schedule</a>
+                    <a href="grades.html" class="nav-link">Grades</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">MY ACCOUNT</h4>
+                    <a href="profile.html" class="nav-link">Student Information</a>
+                    <a href="change-password.html" class="nav-link">Change Password</a>
+                    <a href="hold-orders.html" class="nav-link">Hold Orders</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">BROWSE</h4>
+                    <a href="schedule-of-classes.html" class="nav-link">Schedule of Classes</a>
+                    <a href="degree-curricula.html" class="nav-link">Degree Curricula</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">FORMS</h4>
+                    <a href="tuition-receipt.html" class="nav-link">Tuition Receipt</a>
+                    <a href="change-degree-program.html" class="nav-link">Change Degree Program Form</a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button onclick="logout()" class="btn-secondary">Logout</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="page-header">
+                <h1 class="page-title">Payments</h1>
+                <p class="page-subtitle">View and manage your tuition payments</p>
+            </header>
+
+            <div class="content-area">
+                <div class="payment-summary">
+                    <h3>Payment Summary - First Semester 2025</h3>
+                    <div class="summary-grid">
+                        <div class="summary-item">
+                            <span class="summary-label">Total Fees:</span>
+                            <span class="summary-value">R 28,500.00</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Amount Paid:</span>
+                            <span class="summary-value">R 15,000.00</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Balance Due:</span>
+                            <span class="summary-value text-danger">R 13,500.00</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Due Date:</span>
+                            <span class="summary-value">March 31, 2025</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>Fee Breakdown</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Tuition Fee</td>
+                                <td>R 24,000.00</td>
+                            </tr>
+                            <tr>
+                                <td>Registration Fee</td>
+                                <td>R 2,500.00</td>
+                            </tr>
+                            <tr>
+                                <td>Library Fee</td>
+                                <td>R 1,000.00</td>
+                            </tr>
+                            <tr>
+                                <td>Student Activity Fee</td>
+                                <td>R 500.00</td>
+                            </tr>
+                            <tr>
+                                <td>Technology Fee</td>
+                                <td>R 500.00</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td><strong>Total</strong></td>
+                                <td><strong>R 28,500.00</strong></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <div class="content-card">
+                    <h3>Payment History</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Amount</th>
+                                <th>Payment Method</th>
+                                <th>Receipt</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Jan 15, 2025</td>
+                                <td>Initial Payment</td>
+                                <td>R 10,000.00</td>
+                                <td>Bank Transfer</td>
+                                <td><a href="#" class="btn-link">Download</a></td>
+                            </tr>
+                            <tr>
+                                <td>Feb 10, 2025</td>
+                                <td>Second Installment</td>
+                                <td>R 5,000.00</td>
+                                <td>Credit Card</td>
+                                <td><a href="#" class="btn-link">Download</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="payment-methods">
+                    <h3>Make a Payment</h3>
+                    <div class="method-cards">
+                        <div class="method-card">
+                            <h4>Bank Transfer</h4>
+                            <p><strong>Bank:</strong> Standard Bank</p>
+                            <p><strong>Account:</strong> 123456789</p>
+                            <p><strong>Reference:</strong> <span id="studentRef">220012345</span></p>
+                            <button class="btn-secondary">Copy Details</button>
+                        </div>
+                        <div class="method-card">
+                            <h4>Online Payment</h4>
+                            <p>Pay securely using your credit or debit card</p>
+                            <button class="btn-primary">Pay Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
