@@ -725,3 +725,327 @@ body {
         height: 200px;
     }
 }
+/* Adding styles for new pages and components */
+
+/* Steps Container */
+.steps-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.step-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.step-number {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 auto 1rem;
+}
+
+.btn-link {
+  color: #f59e0b;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.btn-link:hover {
+  color: #d97706;
+}
+
+/* Info Section */
+.info-section {
+  margin-top: 3rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.info-item {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #f59e0b;
+}
+
+.info-item h4 {
+  color: #1e3a8a;
+  margin-bottom: 0.5rem;
+}
+
+/* Registration Summary */
+.registration-summary {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 6px;
+}
+
+.summary-label {
+  font-weight: 600;
+  color: #64748b;
+}
+
+.summary-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1e3a8a;
+}
+
+/* Course Search */
+.course-search {
+  margin: 2rem 0;
+}
+
+.search-filters {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.filter-select {
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 1rem;
+  min-width: 200px;
+}
+
+/* Data Table */
+.data-table {
+  width: 100%;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.data-table thead {
+  background: #1e3a8a;
+  color: white;
+}
+
+.data-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.data-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.data-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.badge-success {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.badge-warning {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.badge-danger {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.badge-info {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+/* Button Sizes */
+.btn-small {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+/* Course Cards */
+.course-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.course-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #f59e0b;
+}
+
+.course-card h4 {
+  color: #1e3a8a;
+  margin-bottom: 0.5rem;
+}
+
+/* Academic Summary */
+.academic-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.summary-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.gpa-value {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1e3a8a;
+  margin-top: 0.5rem;
+}
+
+/* Profile Photo Upload */
+.profile-photo-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.photo-upload-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.profile-photo-large {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #f59e0b;
+}
+
+.photo-upload-controls {
+  flex: 1;
+}
+
+/* Alerts */
+.alert {
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+}
+
+.alert-info {
+  background: #dbeafe;
+  border-left: 4px solid #3b82f6;
+  color: #1e40af;
+}
+
+.alert-success {
+  background: #dcfce7;
+  border-left: 4px solid #22c55e;
+  color: #166534;
+}
+
+.alert-warning {
+  background: #fef3c7;
+  border-left: 4px solid #f59e0b;
+  color: #92400e;
+}
+
+.alert ul {
+  margin: 0.5rem 0 0 1.5rem;
+}
+
+/* Status Badges */
+.status-pending {
+  color: #f59e0b;
+}
+
+.status-approved {
+  color: #22c55e;
+}
+
+.status-rejected {
+  color: #ef4444;
+}
+
+/* Semester Summary */
+.semester-summary {
+  background: #f8fafc;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-top: 1rem;
+  display: flex;
+  gap: 2rem;
+}
+
+/* Text Utilities */
+.text-muted {
+  color: #64748b;
+  font-size: 0.875rem;
+}
