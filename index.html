@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VUT iEnabler - Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <img src="images/vut-logo.jpg" alt="VUT Logo" class="login-logo">
+                <h1>VAAL UNIVERSITY OF TECHNOLOGY</h1>
+                <p class="tagline">Inspiring thought. Shaping talent.</p>
+            </div>
+            
+            <h2>Log in to iEnabler</h2>
+            
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <input type="text" id="studentNumber" placeholder="Student Number" required>
+                </div>
+                
+                <div class="form-group">
+                    <input type="password" id="pin" placeholder="PIN (5 digits)" required maxlength="5">
+                </div>
+                
+                <div class="form-group checkbox-group">
+                    <label>
+                        <input type="checkbox" id="rememberMe">
+                        <span>Remember me?</span>
+                    </label>
+                </div>
+                
+                <div id="loginMessage" class="message" style="display: none;"></div>
+                
+                <button type="submit" class="btn-primary btn-block">Log In</button>
+            </form>
+            
+            <div class="login-footer">
+                <a href="forgot-password.html" class="forgot-link">Forgot your PIN?</a>
+            </div>
+        </div>
+        
+        <div class="prospective-students">
+            <p>If you are a prospective student, not registered at this institution:</p>
+            <a href="application.html" class="btn-secondary">Click here to apply</a>
+        </div>
+    </div>
+    
+    <footer class="auth-footer">
+        <div class="footer-links">
+            <a href="#">Contact Us</a>
+            <a href="#">About Us</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script>
+        // Initialize demo data
+        initializeDemoData();
+        
+        // Handle login
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const studentNumber = document.getElementById('studentNumber').value;
+            const pin = document.getElementById('pin').value;
+            const rememberMe = document.getElementById('rememberMe').checked;
+            
+            const students = JSON.parse(localStorage.getItem('vut_students') || '[]');
+            const student = students.find(s => s.studentNumber === studentNumber && s.pin === pin);
+            
+            const messageDiv = document.getElementById('loginMessage');
+            
+            if (student) {
+                localStorage.setItem('vut_current_student', JSON.stringify(student));
+                if (rememberMe) {
+                    localStorage.setItem('vut_remember', studentNumber);
+                }
+                window.location.href = 'dashboard.html';
+            } else {
+                messageDiv.className = 'message error';
+                messageDiv.textContent = 'Invalid student number or PIN. Please try again.';
+                messageDiv.style.display = 'block';
+            }
+        });
+        
+        // Auto-fill if remembered
+        const remembered = localStorage.getItem('vut_remember');
+        if (remembered) {
+            document.getElementById('studentNumber').value = remembered;
+            document.getElementById('rememberMe').checked = true;
+        }
+    </script>
+</body>
+</html>

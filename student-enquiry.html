@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Enquiry - VUT iEnabler</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <img src="images/vut-logo.jpg" alt="VUT Logo" class="header-logo">
+                <div>
+                    <span class="system-name">iEnabler</span>
+                    <p class="tagline-small">Inspiring thought. Shaping talent.</p>
+                </div>
+            </div>
+            <nav class="header-nav">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="index.html" onclick="logout()">Log Out</a>
+            </nav>
+        </div>
+        <div class="accent-stripe"></div>
+    </header>
+
+    <div class="page-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="student-avatar">
+                    <img id="sidebarPhoto" src="/placeholder.svg?height=80&width=80" alt="Student Photo">
+                </div>
+                <h3 id="sidebarStudentName">Student Name</h3>
+                <p id="sidebarStudentNumber" class="student-number">Loading...</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h4>STUDENT ADMIN</h4>
+                    <a href="student-enquiry.html" class="active">Student Enquiry</a>
+                    <a href="academic-record.html">Academic Record</a>
+                    <a href="progress-report.html">Progress Report</a>
+                    <a href="exam-timetable.html">Examination Timetable</a>
+                    <a href="exam-admission.html">Exam Admission Slip</a>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="content-header">
+                <h1>Student Enquiry</h1>
+                <p class="subtitle">STUDENT ADMIN</p>
+            </div>
+
+            <div class="content-card">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <label>Student Number:</label>
+                        <span id="studentNumber">-</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Gender:</label>
+                        <span id="gender">-</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Birthdate:</label>
+                        <span id="birthdate">-</span>
+                    </div>
+                    <div class="info-item">
+                        <label>ID Number:</label>
+                        <span id="idNumber">-</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Marital Status:</label>
+                        <span id="maritalStatus">-</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Home Language:</label>
+                        <span id="homeLanguage">-</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Citizenship:</label>
+                        <span id="citizenship">-</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Email Address:</label>
+                        <span id="email">-</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Cellphone:</label>
+                        <span id="cellphone">-</span>
+                    </div>
+                </div>
+
+                <h3>Postal Address</h3>
+                <div class="address-box" id="postalAddress">
+                    Loading...
+                </div>
+
+                <h3>Study Address</h3>
+                <div class="address-box" id="studyAddress">
+                    Loading...
+                </div>
+
+                <h3>Current Balance</h3>
+                <div class="balance-box">
+                    <span class="balance-amount" id="currentBalance">R 0.00</span>
+                </div>
+
+                <div class="quick-links-section">
+                    <h3>Quick Links</h3>
+                    <div class="button-group">
+                        <a href="verify-biographical.html" class="btn-secondary">Update Details</a>
+                        <a href="financial-info.html" class="btn-secondary">View Financial Statement</a>
+                        <a href="academic-record.html" class="btn-secondary">View Academic Record</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>iEnabler</h4>
+                <p>Vaal University of Technology Integrated Student Information System</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Contact Us</a>
+                <a href="#">About Us</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        const currentStudent = JSON.parse(localStorage.getItem('vut_current_student'));
+        if (!currentStudent) {
+            window.location.href = 'index.html';
+        } else {
+            document.getElementById('sidebarStudentName').textContent = currentStudent.name;
+            document.getElementById('sidebarStudentNumber').textContent = currentStudent.studentNumber;
+            
+            if (currentStudent.photo) {
+                document.getElementById('sidebarPhoto').src = currentStudent.photo;
+            }
+            
+            // Populate student information
+            document.getElementById('studentNumber').textContent = currentStudent.studentNumber;
+            document.getElementById('gender').textContent = currentStudent.gender || 'Male';
+            document.getElementById('birthdate').textContent = currentStudent.birthdate || '23-Sep-2002';
+            document.getElementById('idNumber').textContent = currentStudent.idNumber || '0209236140080';
+            document.getElementById('maritalStatus').textContent = currentStudent.maritalStatus || 'Single';
+            document.getElementById('homeLanguage').textContent = currentStudent.homeLanguage || 'VENDA';
+            document.getElementById('citizenship').textContent = currentStudent.citizenship || 'SOUTH AFRICA';
+            document.getElementById('email').textContent = currentStudent.email || currentStudent.studentNumber + '@edu.vut.ac.za';
+            document.getElementById('cellphone').textContent = currentStudent.cellphone || '0761068394';
+            
+            document.getElementById('postalAddress').textContent = currentStudent.postalAddress || '21 BEKKER STREET SWI VANDERBIJLPARK GAUTENG 1911';
+            document.getElementById('studyAddress').textContent = currentStudent.studyAddress || 'PO BOX 8759 TSHISAULU THOHOYANDOU LIMPOPO 0945';
+            
+            const balance = currentStudent.balance || -968;
+            document.getElementById('currentBalance').textContent = 'R ' + balance.toFixed(2);
+            document.getElementById('currentBalance').className = 'balance-amount ' + (balance < 0 ? 'balance-credit' : 'balance-debit');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrolled Classes - VUT iEnabler</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="/placeholder.svg?height=60&width=60" alt="VUT Logo" class="sidebar-logo">
+                <h2 class="sidebar-title">iEnabler</h2>
+            </div>
+
+            <div class="user-profile">
+                <img src="/placeholder.svg?height=80&width=80" alt="Profile" class="profile-photo" id="sidebarProfilePhoto">
+                <div class="user-info">
+                    <h3 id="sidebarUserName">Student Name</h3>
+                    <p id="sidebarStudentNumber">220012345</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h4 class="nav-section-title">QUICK LINKS</h4>
+                    <a href="getting-started.html" class="nav-link">Getting Started</a>
+                    <a href="course-registration.html" class="nav-link">Course Registration</a>
+                    <a href="online-assessment.html" class="nav-link">Online Assessment</a>
+                    <a href="payments.html" class="nav-link">Payments</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">MY ACADEMICS</h4>
+                    <a href="program-of-study.html" class="nav-link">Individual Program of Study</a>
+                    <a href="enrolled-classes.html" class="nav-link active">Enrolled Classes</a>
+                    <a href="schedule.html" class="nav-link">Class Schedule</a>
+                    <a href="grades.html" class="nav-link">Grades</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">MY ACCOUNT</h4>
+                    <a href="profile.html" class="nav-link">Student Information</a>
+                    <a href="change-password.html" class="nav-link">Change Password</a>
+                    <a href="hold-orders.html" class="nav-link">Hold Orders</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">BROWSE</h4>
+                    <a href="schedule-of-classes.html" class="nav-link">Schedule of Classes</a>
+                    <a href="degree-curricula.html" class="nav-link">Degree Curricula</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">FORMS</h4>
+                    <a href="tuition-receipt.html" class="nav-link">Tuition Receipt</a>
+                    <a href="change-degree-program.html" class="nav-link">Change Degree Program Form</a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button onclick="logout()" class="btn-secondary">Logout</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="page-header">
+                <h1 class="page-title">Enrolled Classes</h1>
+                <p class="page-subtitle">First Semester 2025</p>
+            </header>
+
+            <div class="content-area">
+                <div class="enrollment-summary">
+                    <h3>Enrollment Summary</h3>
+                    <div class="summary-grid">
+                        <div class="summary-item">
+                            <span class="summary-label">Total Classes:</span>
+                            <span class="summary-value">5</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Total Credits:</span>
+                            <span class="summary-value">17</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Status:</span>
+                            <span class="badge badge-success">Enrolled</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="classes-grid">
+                    <div class="class-card">
+                        <div class="class-header">
+                            <h3>CS 201</h3>
+                            <span class="badge badge-success">Active</span>
+                        </div>
+                        <h4>Algorithms and Complexity</h4>
+                        <div class="class-details">
+                            <p><strong>Instructor:</strong> Dr. Sarah Johnson</p>
+                            <p><strong>Schedule:</strong> Mon/Wed 10:00-12:00</p>
+                            <p><strong>Room:</strong> Building A, Room 301</p>
+                            <p><strong>Credits:</strong> 4</p>
+                        </div>
+                        <div class="class-actions">
+                            <button class="btn-secondary">View Syllabus</button>
+                            <button class="btn-secondary">Contact Instructor</button>
+                        </div>
+                    </div>
+
+                    <div class="class-card">
+                        <div class="class-header">
+                            <h3>CS 202</h3>
+                            <span class="badge badge-success">Active</span>
+                        </div>
+                        <h4>Software Engineering</h4>
+                        <div class="class-details">
+                            <p><strong>Instructor:</strong> Prof. Michael Brown</p>
+                            <p><strong>Schedule:</strong> Tue/Thu 14:00-16:00</p>
+                            <p><strong>Room:</strong> Building B, Room 205</p>
+                            <p><strong>Credits:</strong> 4</p>
+                        </div>
+                        <div class="class-actions">
+                            <button class="btn-secondary">View Syllabus</button>
+                            <button class="btn-secondary">Contact Instructor</button>
+                        </div>
+                    </div>
+
+                    <div class="class-card">
+                        <div class="class-header">
+                            <h3>NET 201</h3>
+                            <span class="badge badge-success">Active</span>
+                        </div>
+                        <h4>Computer Networks</h4>
+                        <div class="class-details">
+                            <p><strong>Instructor:</strong> Dr. Emily Davis</p>
+                            <p><strong>Schedule:</strong> Mon/Wed 14:00-15:30</p>
+                            <p><strong>Room:</strong> Building C, Lab 101</p>
+                            <p><strong>Credits:</strong> 3</p>
+                        </div>
+                        <div class="class-actions">
+                            <button class="btn-secondary">View Syllabus</button>
+                            <button class="btn-secondary">Contact Instructor</button>
+                        </div>
+                    </div>
+
+                    <div class="class-card">
+                        <div class="class-header">
+                            <h3>OS 201</h3>
+                            <span class="badge badge-success">Active</span>
+                        </div>
+                        <h4>Operating Systems</h4>
+                        <div class="class-details">
+                            <p><strong>Instructor:</strong> Prof. David Wilson</p>
+                            <p><strong>Schedule:</strong> Tue/Thu 10:00-11:30</p>
+                            <p><strong>Room:</strong> Building A, Room 405</p>
+                            <p><strong>Credits:</strong> 3</p>
+                        </div>
+                        <div class="class-actions">
+                            <button class="btn-secondary">View Syllabus</button>
+                            <button class="btn-secondary">Contact Instructor</button>
+                        </div>
+                    </div>
+
+                    <div class="class-card">
+                        <div class="class-header">
+                            <h3>DB 201</h3>
+                            <span class="badge badge-success">Active</span>
+                        </div>
+                        <h4>Advanced Database Systems</h4>
+                        <div class="class-details">
+                            <p><strong>Instructor:</strong> Dr. Lisa Anderson</p>
+                            <p><strong>Schedule:</strong> Fri 09:00-12:00</p>
+                            <p><strong>Room:</strong> Building B, Lab 303</p>
+                            <p><strong>Credits:</strong> 3</p>
+                        </div>
+                        <div class="class-actions">
+                            <button class="btn-secondary">View Syllabus</button>
+                            <button class="btn-secondary">Contact Instructor</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

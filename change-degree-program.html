@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Degree Program - VUT iEnabler</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="/placeholder.svg?height=60&width=60" alt="VUT Logo" class="sidebar-logo">
+                <h2 class="sidebar-title">iEnabler</h2>
+            </div>
+
+            <div class="user-profile">
+                <img src="/placeholder.svg?height=80&width=80" alt="Profile" class="profile-photo" id="sidebarProfilePhoto">
+                <div class="user-info">
+                    <h3 id="sidebarUserName">Student Name</h3>
+                    <p id="sidebarStudentNumber">220012345</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h4 class="nav-section-title">QUICK LINKS</h4>
+                    <a href="getting-started.html" class="nav-link">Getting Started</a>
+                    <a href="course-registration.html" class="nav-link">Course Registration</a>
+                    <a href="online-assessment.html" class="nav-link">Online Assessment</a>
+                    <a href="payments.html" class="nav-link">Payments</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">MY ACADEMICS</h4>
+                    <a href="program-of-study.html" class="nav-link">Individual Program of Study</a>
+                    <a href="enrolled-classes.html" class="nav-link">Enrolled Classes</a>
+                    <a href="schedule.html" class="nav-link">Class Schedule</a>
+                    <a href="grades.html" class="nav-link">Grades</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">MY ACCOUNT</h4>
+                    <a href="profile.html" class="nav-link">Student Information</a>
+                    <a href="change-password.html" class="nav-link">Change Password</a>
+                    <a href="hold-orders.html" class="nav-link">Hold Orders</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">BROWSE</h4>
+                    <a href="schedule-of-classes.html" class="nav-link">Schedule of Classes</a>
+                    <a href="degree-curricula.html" class="nav-link">Degree Curricula</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4 class="nav-section-title">FORMS</h4>
+                    <a href="tuition-receipt.html" class="nav-link">Tuition Receipt</a>
+                    <a href="change-degree-program.html" class="nav-link active">Change Degree Program Form</a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button onclick="logout()" class="btn-secondary">Logout</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="page-header">
+                <h1 class="page-title">Change Degree Program Form</h1>
+                <p class="page-subtitle">Request to change your degree program</p>
+            </header>
+
+            <div class="content-area">
+                <div class="alert alert-info">
+                    <strong>Important:</strong> Changing your degree program may affect your graduation timeline and financial aid. Please consult with your academic advisor before submitting this form.
+                </div>
+
+                <div class="content-card">
+                    <h3>Current Program Information</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="label">Current Program:</span>
+                            <span class="value">Bachelor of Information Technology</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Faculty:</span>
+                            <span class="value">Information and Communication Technology</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Year Level:</span>
+                            <span class="value">Second Year</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Credits Completed:</span>
+                            <span class="value">32</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>Request Program Change</h3>
+                    <form id="changeProgramForm" class="form-layout">
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label for="newFaculty">New Faculty:</label>
+                                <select id="newFaculty" name="newFaculty" required>
+                                    <option value="">Select Faculty</option>
+                                    <option value="ICT">Information and Communication Technology</option>
+                                    <option value="ENG">Engineering</option>
+                                    <option value="BUS">Business</option>
+                                    <option value="SCI">Applied Sciences</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label for="newProgram">New Program:</label>
+                                <select id="newProgram" name="newProgram" required>
+                                    <option value="">Select Program</option>
+                                    <option value="BIT">Bachelor of Information Technology</option>
+                                    <option value="BCS">Bachelor of Computer Science</option>
+                                    <option value="DIT">Diploma in Information Technology</option>
+                                    <option value="BSE">Bachelor of Software Engineering</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label for="reason">Reason for Change:</label>
+                                <textarea id="reason" name="reason" rows="5" required placeholder="Please explain why you want to change your degree program..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label for="effectiveDate">Requested Effective Date:</label>
+                                <select id="effectiveDate" name="effectiveDate" required>
+                                    <option value="">Select Semester</option>
+                                    <option value="2025-1">First Semester 2025</option>
+                                    <option value="2025-2">Second Semester 2025</option>
+                                    <option value="2026-1">First Semester 2026</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label>
+                                    <input type="checkbox" id="advisorConsult" name="advisorConsult" required>
+                                    I have consulted with my academic advisor about this change
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label>
+                                    <input type="checkbox" id="understand" name="understand" required>
+                                    I understand that this change may affect my graduation timeline and financial obligations
+                                </label>
+                            </div>
+                        </div>
+
+                        <div id="formMessage" class="message" style="display: none;"></div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Submit Request</button>
+                            <button type="button" class="btn-secondary" onclick="window.location.href='dashboard.html'">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('changeProgramForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const messageDiv = document.getElementById('formMessage');
+            messageDiv.className = 'message success';
+            messageDiv.textContent = 'Your program change request has been submitted successfully. You will receive a response within 5-7 business days.';
+            messageDiv.style.display = 'block';
+            
+            // Clear form
+            setTimeout(() => {
+                window.location.href = 'dashboard.html';
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

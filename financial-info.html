@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Information - VUT iEnabler</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <img src="images/vut-logo.jpg" alt="VUT Logo" class="header-logo">
+                <div>
+                    <span class="system-name">iEnabler</span>
+                    <p class="tagline-small">Inspiring thought. Shaping talent.</p>
+                </div>
+            </div>
+            <nav class="header-nav">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="index.html" onclick="logout()">Log Out</a>
+            </nav>
+        </div>
+        <div class="accent-stripe"></div>
+    </header>
+
+    <div class="page-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="student-avatar">
+                    <img id="sidebarPhoto" src="/placeholder.svg?height=80&width=80" alt="Student Photo">
+                </div>
+                <h3 id="sidebarStudentName">Student Name</h3>
+                <p id="sidebarStudentNumber" class="student-number">Loading...</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h4>STUDENT FINANCE</h4>
+                    <a href="financial-info.html" class="active">Financial Information</a>
+                    <a href="banking-details.html">Maintain Banking Details</a>
+                    <a href="acknowledgement-debt.html">Acknowledgement of Debt</a>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="content-header">
+                <h1>Financial Information</h1>
+                <p class="subtitle">STUDENT FINANCE</p>
+            </div>
+
+            <div class="content-card">
+                <h3>Statement Type: Age Analysis</h3>
+                
+                <div class="financial-summary">
+                    <div class="summary-row">
+                        <span>Debit Amount:</span>
+                        <span class="amount-debit">R 291,611.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Credit Amount:</span>
+                        <span class="amount-credit">R 292,579.00</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Balance Amount:</span>
+                        <span class="amount-credit">R -968.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Date of Balance:</span>
+                        <span>17-OCT-2025</span>
+                    </div>
+                </div>
+
+                <h3>Age Analysis</h3>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>160+</th>
+                                <th>90</th>
+                                <th>60</th>
+                                <th>30</th>
+                                <th>Current</th>
+                                <th>Credit</th>
+                                <th>Future</th>
+                                <th>Unallocated</th>
+                                <th>Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td>-968.00</td>
+                                <td>0.00</td>
+                                <td>0.00</td>
+                                <td class="balance-credit">-968.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn-primary" onclick="showFeeDetail()">Fee Detail</button>
+                    <button class="btn-secondary" onclick="showDepositDetail()">Deposit Detail</button>
+                    <button class="btn-secondary" onclick="showBursaryDetail()">Bursary Detail</button>
+                </div>
+
+                <div id="feeDetailSection" style="display: none;">
+                    <h3>Fee Detail</h3>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Reference</th>
+                                    <th>Description</th>
+                                    <th>Debit</th>
+                                    <th>Credit</th>
+                                    <th>Balance</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>27-Jan-2025</td>
+                                    <td>AIRMY4A21</td>
+                                    <td>E/N RESEARCH METHODOLOGY FOR IT</td>
+                                    <td>4,124.00</td>
+                                    <td></td>
+                                    <td>7,221.00</td>
+                                </tr>
+                                <tr>
+                                    <td>27-Jan-2025</td>
+                                    <td>03101</td>
+                                    <td>ACCESS ACTIVATION FEE</td>
+                                    <td>304.00</td>
+                                    <td></td>
+                                    <td>7,525.00</td>
+                                </tr>
+                                <tr>
+                                    <td>27-Jan-2025</td>
+                                    <td>AIADY4A21</td>
+                                    <td>E/N ADVANCED DATABASES</td>
+                                    <td>3,751.00</td>
+                                    <td></td>
+                                    <td>11,276.00</td>
+                                </tr>
+                                <tr>
+                                    <td>27-Jan-2025</td>
+                                    <td>BAITX4A11</td>
+                                    <td>E/N STATISTICS FOR IT</td>
+                                    <td>2,551.00</td>
+                                    <td></td>
+                                    <td>13,827.00</td>
+                                </tr>
+                                <tr>
+                                    <td>27-Jan-2025</td>
+                                    <td>03101</td>
+                                    <td>SPORT & CULTURE LEVY</td>
+                                    <td>388.00</td>
+                                    <td></td>
+                                    <td>14,415.00</td>
+                                </tr>
+                                <tr>
+                                    <td>27-Jan-2025</td>
+                                    <td>03101</td>
+                                    <td>STUDENT LEVY</td>
+                                    <td>366.00</td>
+                                    <td></td>
+                                    <td>15,097.00</td>
+                                </tr>
+                                <tr>
+                                    <td>23-Jun-2025</td>
+                                    <td>322754/25</td>
+                                    <td>HOLLYWOOD FOUNDATION</td>
+                                    <td></td>
+                                    <td>32,709.00</td>
+                                    <td class="balance-credit">-968.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="depositDetailSection" style="display: none;">
+                    <h3>Deposit Detail</h3>
+                    <p class="no-data">No DEPOSIT Detail Found.</p>
+                </div>
+
+                <div id="bursaryDetailSection" style="display: none;">
+                    <h3>Bursary Detail</h3>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Reference</th>
+                                    <th>Description</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>23-Jun-2025</td>
+                                    <td>322754/25</td>
+                                    <td>HOLLYWOOD FOUNDATION</td>
+                                    <td>32,709.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>iEnabler</h4>
+                <p>Vaal University of Technology Integrated Student Information System</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Contact Us</a>
+                <a href="#">About Us</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        const currentStudent = JSON.parse(localStorage.getItem('vut_current_student'));
+        if (!currentStudent) {
+            window.location.href = 'index.html';
+        } else {
+            document.getElementById('sidebarStudentName').textContent = currentStudent.name;
+            document.getElementById('sidebarStudentNumber').textContent = currentStudent.studentNumber;
+            
+            if (currentStudent.photo) {
+                document.getElementById('sidebarPhoto').src = currentStudent.photo;
+            }
+        }
+
+        function showFeeDetail() {
+            document.getElementById('feeDetailSection').style.display = 'block';
+            document.getElementById('depositDetailSection').style.display = 'none';
+            document.getElementById('bursaryDetailSection').style.display = 'none';
+        }
+
+        function showDepositDetail() {
+            document.getElementById('feeDetailSection').style.display = 'none';
+            document.getElementById('depositDetailSection').style.display = 'block';
+            document.getElementById('bursaryDetailSection').style.display = 'none';
+        }
+
+        function showBursaryDetail() {
+            document.getElementById('feeDetailSection').style.display = 'none';
+            document.getElementById('depositDetailSection').style.display = 'none';
+            document.getElementById('bursaryDetailSection').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

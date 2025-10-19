@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student iEnabler - VUT</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <img src="images/vut-logo.jpg" alt="VUT Logo" class="header-logo">
+                <div>
+                    <span class="system-name">iEnabler</span>
+                    <p class="tagline-small">Inspiring thought. Shaping talent.</p>
+                </div>
+            </div>
+            <nav class="header-nav">
+                <a href="dashboard.html" class="active">Dashboard</a>
+                <a href="index.html" onclick="logout()">Log Out</a>
+            </nav>
+        </div>
+        <div class="accent-stripe"></div>
+    </header>
+
+    <div class="page-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="student-avatar">
+                    <img id="sidebarPhoto" src="/placeholder.svg?height=80&width=80" alt="Student Photo">
+                </div>
+                <h3 id="sidebarStudentName">Student Name</h3>
+                <p id="sidebarStudentNumber" class="student-number">Loading...</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h4>APPLICATION</h4>
+                    <a href="returning-application.html">Returning Students Application</a>
+                    <a href="residence-application.html">Residence Application</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4>REGISTRATION</h4>
+                    <a href="academic-registration.html">Academic Registration</a>
+                    <a href="residence-registration.html">Residence Registration</a>
+                    <a href="registration-info.html">Registration Information</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4>STUDENT ADMIN</h4>
+                    <a href="student-enquiry.html">Student Enquiry</a>
+                    <a href="academic-record.html">Academic Record</a>
+                    <a href="progress-report.html">Progress Report</a>
+                    <a href="exam-timetable.html">Examination Timetable</a>
+                    <a href="exam-admission.html">Exam Admission Slip</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4>FINANCIAL AID</h4>
+                    <a href="financial-aid-application.html">Financial Aid Applications</a>
+                    <a href="financial-aid-details.html">Financial Aid Details</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4>STUDENT FINANCE</h4>
+                    <a href="financial-info.html">Financial Information</a>
+                    <a href="banking-details.html">Maintain Banking Details</a>
+                    <a href="acknowledgement-debt.html">Acknowledgement of Debt</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4>MY ACCOUNT</h4>
+                    <a href="verify-biographical.html">Verify Biographical Detail</a>
+                    <a href="change-password.html">Change Password</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4>HIGHER DEGREES</h4>
+                    <a href="higher-degrees.html">Applications</a>
+                    <a href="proposals-ethics.html">Proposals and Ethics</a>
+                    <a href="suspension.html">Suspension Applications</a>
+                    <a href="intention-submit.html">Intention to Submit</a>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="content-header">
+                <h1>Student iEnabler</h1>
+                <p class="subtitle">Welcome back, <span id="welcomeName">Student</span></p>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <div class="card-icon application-icon">📝</div>
+                    <h3>Application</h3>
+                    <ul class="card-links">
+                        <li><a href="returning-application.html">Returning Students Application</a></li>
+                        <li><a href="residence-application.html">Residence Application</a></li>
+                    </ul>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="card-icon registration-icon">📚</div>
+                    <h3>Registration</h3>
+                    <ul class="card-links">
+                        <li><a href="academic-registration.html">Academic Registration</a></li>
+                        <li><a href="residence-registration.html">Residence Registration</a></li>
+                        <li><a href="registration-info.html">Registration Information</a></li>
+                    </ul>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="card-icon admin-icon">👤</div>
+                    <h3>Student Admin</h3>
+                    <ul class="card-links">
+                        <li><a href="student-enquiry.html">Student Enquiry</a></li>
+                        <li><a href="academic-record.html">Academic Record</a></li>
+                        <li><a href="progress-report.html">Progress Report</a></li>
+                        <li><a href="exam-timetable.html">Examination Timetable</a></li>
+                    </ul>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="card-icon finance-icon">💰</div>
+                    <h3>Financial Information</h3>
+                    <ul class="card-links">
+                        <li><a href="financial-info.html">Financial Statement</a></li>
+                        <li><a href="financial-aid-details.html">Financial Aid Details</a></li>
+                        <li><a href="banking-details.html">Banking Details</a></li>
+                    </ul>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="card-icon account-icon">⚙️</div>
+                    <h3>My Account</h3>
+                    <ul class="card-links">
+                        <li><a href="verify-biographical.html">Verify Biographical Detail</a></li>
+                        <li><a href="change-password.html">Change Password</a></li>
+                    </ul>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="card-icon degrees-icon">🎓</div>
+                    <h3>Higher Degrees</h3>
+                    <ul class="card-links">
+                        <li><a href="higher-degrees.html">Applications</a></li>
+                        <li><a href="proposals-ethics.html">Proposals and Ethics</a></li>
+                        <li><a href="suspension.html">Suspension Applications</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="announcements-section">
+                <h2>Announcements</h2>
+                <div class="announcement-card">
+                    <div class="announcement-date">17 Oct 2025</div>
+                    <h3>Academic Year 2025 Registration</h3>
+                    <p>Registration for the 2025 academic year is now open. Please ensure all outstanding fees are paid before registering.</p>
+                </div>
+                <div class="announcement-card">
+                    <div class="announcement-date">15 Oct 2025</div>
+                    <h3>Examination Timetable Available</h3>
+                    <p>The examination timetable for the current semester is now available. Check your exam admission slip for details.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>iEnabler</h4>
+                <p>Vaal University of Technology Integrated Student Information System</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Contact Us</a>
+                <a href="#">About Us</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Load student info
+        const currentStudent = JSON.parse(localStorage.getItem('vut_current_student'));
+        if (!currentStudent) {
+            window.location.href = 'index.html';
+        } else {
+            document.getElementById('sidebarStudentName').textContent = currentStudent.name;
+            document.getElementById('sidebarStudentNumber').textContent = currentStudent.studentNumber;
+            document.getElementById('welcomeName').textContent = currentStudent.name.split(',')[0];
+            
+            if (currentStudent.photo) {
+                document.getElementById('sidebarPhoto').src = currentStudent.photo;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,58 +1,293 @@
-<!-- Adding profile photo upload functionality -->
-<div class="profile-photo-section">
-    <h3>Profile Photo</h3>
-    <div class="photo-upload-container">
-        <img src="/images/logo.png" alt="Profile Photo" id="profilePhotoPreview" class="profile-photo-large">
-        <div class="photo-upload-controls">
-            <input type="file" id="photoUpload" accept="image/*" style="display: none;">
-            <button type="button" class="btn-primary" onclick="document.getElementById('photoUpload').click()">
-                Change Photo
-            </button>
-            <p class="text-muted">Accepted formats: JPG, PNG (Max 2MB)</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information - VUT iEnabler</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <img src="images/logo.png" alt="VUT Logo" class="header-logo">
+                <span class="system-name">iEnabler</span>
+            </div>
+            <nav class="header-nav">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="schedule.html">Class Schedules</a>
+                <a href="index.html">Log Out</a>
+            </nav>
         </div>
+        <div class="accent-stripe"></div>
+    </header>
+
+    <div class="page-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="images/logo.png" alt="VUT Logo">
+                <h3>iEnabler</h3>
+                <p id="sidebarStudentName">Student Name</p>
+                <p id="sidebarStudentNumber" class="student-number">Loading...</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h4>MY ACADEMICS</h4>
+                    <a href="program-of-study.html">Individual Program of Study</a>
+                    <a href="enrolled-classes.html">Enrolled Classes</a>
+                    <a href="schedule.html">Class Schedule</a>
+                    <a href="grades.html">Grades</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4>MY ACCOUNT</h4>
+                    <a href="google-account.html">Google Account</a>
+                    <a href="profile.html" class="active">Student Information</a>
+                    <a href="change-password.html">Change Password</a>
+                    <a href="hold-orders.html">Hold Orders</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4>BROWSE</h4>
+                    <a href="browse-schedule.html">Schedule of Classes</a>
+                    <a href="degree-curricula.html">Degree Curricula</a>
+                </div>
+
+                <div class="nav-section">
+                    <h4>FORMS</h4>
+                    <a href="tuition-receipt.html">Tuition Receipt</a>
+                    <a href="change-program.html">Change Degree Program Form</a>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="content-header">
+                <h1>Student Information</h1>
+                <p class="subtitle">MY ACCOUNT</p>
+            </div>
+
+             <CHANGE> Added profile photo upload section 
+            <div class="profile-photo-section">
+                <div class="profile-photo-container">
+                    <img id="profilePhoto" src="/placeholder.svg?height=150&width=150" alt="Profile Photo" class="profile-photo">
+                    <button class="photo-upload-btn" onclick="document.getElementById('photoInput').click()">📷</button>
+                    <input type="file" id="photoInput" accept="image/*">
+                </div>
+                <p><strong id="photoStudentName">Student Name</strong></p>
+                <p id="photoStudentNumber">Student Number</p>
+            </div>
+
+            <div class="content-card">
+                <h3>Contact Details</h3>
+                <form id="profileForm" class="form-layout">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mobile">Mobile No.:</label>
+                            <input type="tel" id="mobile" name="mobile" required>
+                        </div>
+                    </div>
+
+                    <h3>Address</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="unitNo">Unit No.:</label>
+                            <input type="text" id="unitNo" name="unitNo">
+                        </div>
+                        <div class="form-group">
+                            <label for="building">Building:</label>
+                            <input type="text" id="building" name="building">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="streetNo">Street No.:</label>
+                            <input type="text" id="streetNo" name="streetNo">
+                        </div>
+                        <div class="form-group">
+                            <label for="street">Street:</label>
+                            <input type="text" id="street" name="street">
+                        </div>
+                        <div class="form-group">
+                            <label for="village">Village/Barangay:</label>
+                            <input type="text" id="village" name="village">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="municipality">Municipality:</label>
+                            <input type="text" id="municipality" name="municipality">
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City:</label>
+                            <input type="text" id="city" name="city">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="zipCode">ZIP Code:</label>
+                            <input type="text" id="zipCode" name="zipCode">
+                        </div>
+                        <div class="form-group">
+                            <label for="province">Province:</label>
+                            <input type="text" id="province" name="province">
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Country:</label>
+                            <select id="country" name="country">
+                                <option value="South Africa">South Africa</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <h3>Emergency Contact</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contactPerson">Contact Person:</label>
+                            <input type="text" id="contactPerson" name="contactPerson">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email:</label>
+                            <input type="email" id="contactEmail" name="contactEmail">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contactMobile">Mobile No.:</label>
+                            <input type="tel" id="contactMobile" name="contactMobile">
+                        </div>
+                        <div class="form-group">
+                            <label for="landline">Landline:</label>
+                            <input type="tel" id="landline" name="landline">
+                        </div>
+                    </div>
+
+                    <div id="profileMessage" class="message" style="display: none;"></div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Save Changes</button>
+                        <button type="button" class="btn-secondary" onclick="window.location.href='dashboard.html'">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </main>
     </div>
-</div>
 
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>iEnabler</h4>
+                <p>Vaal Integrated Student Information System</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </div>
+    </footer>
 
-<script>
-document.getElementById('photoUpload').addEventListener('change', function(e) {
-    const file = e.target.files[0];
-    if (!file) return;
-    
-    // Validate file size (2MB max)
-    if (file.size > 2 * 1024 * 1024) {
-        alert('File size must be less than 2MB');
-        return;
-    }
-    
-    // Validate file type
-    if (!file.type.match('image.*')) {
-        alert('Please select an image file');
-        return;
-    }
-    
-    const reader = new FileReader();
-    reader.onload = function(event) {
-        const photoDataUrl = event.target.result;
-        
-        // Update preview
-        document.getElementById('profilePhotoPreview').src = photoDataUrl;
-        
-        // Save to data manager
-        const currentUser = dataManager.getCurrentUser();
-        if (currentUser) {
-            dataManager.updateProfilePhoto(currentUser.studentNumber, photoDataUrl);
+    <script src="script.js"></script>
+    <script>
+        // Load student info
+        const currentStudent = JSON.parse(localStorage.getItem('vut_current_student'));
+        if (!currentStudent) {
+            window.location.href = 'index.html';
+        } else {
+            document.getElementById('sidebarStudentName').textContent = currentStudent.name;
+            document.getElementById('sidebarStudentNumber').textContent = currentStudent.studentNumber;
+            document.getElementById('photoStudentName').textContent = currentStudent.name;
+            document.getElementById('photoStudentNumber').textContent = currentStudent.studentNumber;
             
-            // Update current session
-            currentUser.profilePhoto = photoDataUrl;
-            dataManager.setCurrentUser(currentUser);
+            // Load profile photo if exists
+            if (currentStudent.photo) {
+                document.getElementById('profilePhoto').src = currentStudent.photo;
+            }
             
-            // Update sidebar photo
-            document.getElementById('sidebarProfilePhoto').src = photoDataUrl;
-            
-            alert('Profile photo updated successfully!');
+            // Load profile data if exists
+            if (currentStudent.profile) {
+                Object.keys(currentStudent.profile).forEach(key => {
+                    const input = document.getElementById(key);
+                    if (input) {
+                        input.value = currentStudent.profile[key];
+                    }
+                });
+            }
         }
-    };
-    reader.readAsDataURL(file);
-});
-</script>
+
+        // <CHANGE> Handle profile photo upload
+        document.getElementById('photoInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                if (file.size > 2 * 1024 * 1024) {
+                    alert('File size must be less than 2MB');
+                    return;
+                }
+                
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const photoData = event.target.result;
+                    document.getElementById('profilePhoto').src = photoData;
+                    
+                    // Save to localStorage
+                    currentStudent.photo = photoData;
+                    localStorage.setItem('vut_current_student', JSON.stringify(currentStudent));
+                    
+                    // Update in students array
+                    const students = JSON.parse(localStorage.getItem('vut_students') || '[]');
+                    const studentIndex = students.findIndex(s => s.studentNumber === currentStudent.studentNumber);
+                    if (studentIndex !== -1) {
+                        students[studentIndex].photo = photoData;
+                        localStorage.setItem('vut_students', JSON.stringify(students));
+                    }
+                    
+                    alert('Profile photo updated successfully!');
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Handle profile form submission
+        document.getElementById('profileForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const profileData = {};
+            formData.forEach((value, key) => {
+                profileData[key] = value;
+            });
+            
+            // Save to current student
+            currentStudent.profile = profileData;
+            localStorage.setItem('vut_current_student', JSON.stringify(currentStudent));
+            
+            // Update in students array
+            const students = JSON.parse(localStorage.getItem('vut_students') || '[]');
+            const studentIndex = students.findIndex(s => s.studentNumber === currentStudent.studentNumber);
+            if (studentIndex !== -1) {
+                students[studentIndex].profile = profileData;
+                localStorage.setItem('vut_students', JSON.stringify(students));
+            }
+            
+            const messageDiv = document.getElementById('profileMessage');
+            messageDiv.className = 'message success';
+            messageDiv.textContent = 'Profile updated successfully!';
+            messageDiv.style.display = 'block';
+            
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Information - VUT iEnabler</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <img src="images/vut-logo.jpg" alt="VUT Logo" class="header-logo">
+                <div>
+                    <span class="system-name">iEnabler</span>
+                    <p class="tagline-small">Inspiring thought. Shaping talent.</p>
+                </div>
+            </div>
+            <nav class="header-nav">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="index.html" onclick="logout()">Log Out</a>
+            </nav>
+        </div>
+        <div class="accent-stripe"></div>
+    </header>
+
+    <div class="page-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="student-avatar">
+                    <img id="sidebarPhoto" src="/placeholder.svg?height=80&width=80" alt="Student Photo">
+                </div>
+                <h3 id="sidebarStudentName">Student Name</h3>
+                <p id="sidebarStudentNumber" class="student-number">Loading...</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h4>REGISTRATION</h4>
+                    <a href="academic-registration.html">Academic Registration</a>
+                    <a href="residence-registration.html">Residence Registration</a>
+                    <a href="registration-info.html" class="active">Registration Information</a>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="content-header">
+                <h1>Registration Information</h1>
+                <p class="subtitle">REGISTRATION</p>
+            </div>
+
+            <div class="content-card">
+                <h3>Current Registration</h3>
+                
+                <div class="registration-summary">
+                    <div class="info-row">
+                        <label>Academic Year:</label>
+                        <span>2025</span>
+                    </div>
+                    <div class="info-row">
+                        <label>Qualification:</label>
+                        <span>BACHELOR OF INFORMATION TECHNOLOGY</span>
+                    </div>
+                    <div class="info-row">
+                        <label>Campus:</label>
+                        <span>VANDERBIJLPARK CAMPUS</span>
+                    </div>
+                    <div class="info-row">
+                        <label>Study Mode:</label>
+                        <span>FULL TIME</span>
+                    </div>
+                    <div class="info-row">
+                        <label>Semester:</label>
+                        <span>ONE</span>
+                    </div>
+                    <div class="info-row">
+                        <label>Registration Status:</label>
+                        <span class="status-badge status-active">NORMAL</span>
+                    </div>
+                </div>
+
+                <h3>Enrolled Modules</h3>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Module Code</th>
+                                <th>Module Description</th>
+                                <th>Credits</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>BAITX4A</td>
+                                <td>STATISTICS FOR IT</td>
+                                <td>12</td>
+                                <td><span class="status-badge status-enrolled">Enrolled</span></td>
+                            </tr>
+                            <tr>
+                                <td>AIRMY4A21</td>
+                                <td>RESEARCH METHODOLOGY FOR IT</td>
+                                <td>16</td>
+                                <td><span class="status-badge status-enrolled">Enrolled</span></td>
+                            </tr>
+                            <tr>
+                                <td>AIADY4A21</td>
+                                <td>ADVANCED DATABASES</td>
+                                <td>15</td>
+                                <td><span class="status-badge status-enrolled">Enrolled</span></td>
+                            </tr>
+                            <tr>
+                                <td>AIETX4A11</td>
+                                <td>EMERGING TECHNOLOGIES</td>
+                                <td>15</td>
+                                <td><span class="status-badge status-enrolled">Enrolled</span></td>
+                            </tr>
+                            <tr>
+                                <td>AITMX4A11</td>
+                                <td>IT MANAGEMENT</td>
+                                <td>15</td>
+                                <td><span class="status-badge status-enrolled">Enrolled</span></td>
+                            </tr>
+                            <tr>
+                                <td>ASAJY4A21</td>
+                                <td>ARTIFICIAL INTELLIGENCE</td>
+                                <td>15</td>
+                                <td><span class="status-badge status-enrolled">Enrolled</span></td>
+                            </tr>
+                            <tr>
+                                <td>ASSDX4A11</td>
+                                <td>ADVANCED SOFTWARE DESIGN</td>
+                                <td>15</td>
+                                <td><span class="status-badge status-enrolled">Enrolled</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="registration-totals">
+                    <div class="total-item">
+                        <label>Total Credits:</label>
+                        <span class="total-value">103</span>
+                    </div>
+                    <div class="total-item">
+                        <label>Total Modules:</label>
+                        <span class="total-value">7</span>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <a href="exam-timetable.html" class="btn-primary">View Exam Timetable</a>
+                    <a href="exam-admission.html" class="btn-secondary">Exam Admission Slip</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>iEnabler</h4>
+                <p>Vaal University of Technology Integrated Student Information System</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Contact Us</a>
+                <a href="#">About Us</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        const currentStudent = JSON.parse(localStorage.getItem('vut_current_student'));
+        if (!currentStudent) {
+            window.location.href = 'index.html';
+        } else {
+            document.getElementById('sidebarStudentName').textContent = currentStudent.name;
+            document.getElementById('sidebarStudentNumber').textContent = currentStudent.studentNumber;
+            
+            if (currentStudent.photo) {
+                document.getElementById('sidebarPhoto').src = currentStudent.photo;
+            }
+        }
+    </script>
+</body>
+</html>
