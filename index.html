@@ -17,6 +17,13 @@
             
             <h2>Log in to iEnabler</h2>
             
+            <!-- Added demo credentials helper -->
+            <div class="demo-credentials">
+                <p><strong>Demo Login:</strong></p>
+                <p>Student Number: <code>222377941</code></p>
+                <p>PIN: <code>12345</code></p>
+            </div>
+            
             <form id="loginForm" class="login-form">
                 <div class="form-group">
                     <input type="text" id="studentNumber" placeholder="Student Number" required>
@@ -60,41 +67,59 @@
     
     <script src="script.js"></script>
     <script>
-        // Initialize demo data
-        initializeDemoData();
-        
-        // Handle login
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('[v0] Initializing login page');
             
-            const studentNumber = document.getElementById('studentNumber').value;
-            const pin = document.getElementById('pin').value;
-            const rememberMe = document.getElementById('rememberMe').checked;
+            // Initialize demo data
+            initializeDemoData();
             
+            // Verify data was created
             const students = JSON.parse(localStorage.getItem('vut_students') || '[]');
-            const student = students.find(s => s.studentNumber === studentNumber && s.pin === pin);
+            console.log('[v0] Students in database:', students.length);
+            if (students.length > 0) {
+                console.log('[v0] Demo student number:', students[0].studentNumber);
+            }
             
-            const messageDiv = document.getElementById('loginMessage');
-            
-            if (student) {
-                localStorage.setItem('vut_current_student', JSON.stringify(student));
-                if (rememberMe) {
-                    localStorage.setItem('vut_remember', studentNumber);
+            // Handle login
+            document.getElementById('loginForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const studentNumber = document.getElementById('studentNumber').value.trim();
+                const pin = document.getElementById('pin').value.trim();
+                const rememberMe = document.getElementById('rememberMe').checked;
+                
+                console.log('[v0] Login attempt - Student Number:', studentNumber, 'PIN:', pin);
+                
+                const students = JSON.parse(localStorage.getItem('vut_students') || '[]');
+                console.log('[v0] Checking against', students.length, 'students');
+                
+                const student = students.find(s => s.studentNumber === studentNumber && s.pin === pin);
+                
+                const messageDiv = document.getElementById('loginMessage');
+                
+                if (student) {
+                    console.log('[v0] Login successful');
+                    localStorage.setItem('vut_current_student', JSON.stringify(student));
+                    if (rememberMe) {
+                        localStorage.setItem('vut_remember', studentNumber);
+                    }
+                    window.location.href = 'dashboard.html';
+                } else {
+                    console.log('[v0] Login failed - Invalid credentials');
+                    messageDiv.className = 'message error';
+                    messageDiv.textContent = 'Invalid student number or PIN. Please try again.';
+                    messageDiv.style.display = 'block';
                 }
-                window.location.href = 'dashboard.html';
-            } else {
-                messageDiv.className = 'message error';
-                messageDiv.textContent = 'Invalid student number or PIN. Please try again.';
-                messageDiv.style.display = 'block';
+            });
+            
+            // Auto-fill if remembered
+            const remembered = localStorage.getItem('vut_remember');
+            if (remembered) {
+                document.getElementById('studentNumber').value = remembered;
+                document.getElementById('rememberMe').checked = true;
             }
         });
-        
-        // Auto-fill if remembered
-        const remembered = localStorage.getItem('vut_remember');
-        if (remembered) {
-            document.getElementById('studentNumber').value = remembered;
-            document.getElementById('rememberMe').checked = true;
-        }
     </script>
 </body>
 </html>
