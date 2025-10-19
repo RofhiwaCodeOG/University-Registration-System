@@ -17,6 +17,13 @@
             
             <h2>Log in to iEnabler</h2>
             
+            <!-- Added demo credentials helper -->
+            <div style="background: #fff3cd; border: 1px solid #ffc107; padding: 10px; margin-bottom: 15px; border-radius: 4px; font-size: 14px;">
+                <strong>Demo Login:</strong><br>
+                Student Number: <strong>222377941</strong><br>
+                PIN: <strong>12345</strong>
+            </div>
+            
             <form id="loginForm" class="login-form">
                 <div class="form-group">
                     <input type="text" id="studentNumber" placeholder="Student Number" required>
@@ -60,29 +67,45 @@
     
     <script src="script.js"></script>
     <script>
+        console.log('[v0] Initializing login page...');
+        
         // Initialize demo data
         initializeDemoData();
+        
+        // Verify demo data was created
+        const students = JSON.parse(localStorage.getItem('vut_students') || '[]');
+        console.log('[v0] Students in localStorage:', students.length);
+        if (students.length > 0) {
+            console.log('[v0] Demo student number:', students[0].studentNumber);
+            console.log('[v0] Demo PIN:', students[0].pin);
+        }
         
         // Handle login
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const studentNumber = document.getElementById('studentNumber').value;
-            const pin = document.getElementById('pin').value;
+            const studentNumber = document.getElementById('studentNumber').value.trim();
+            const pin = document.getElementById('pin').value.trim();
             const rememberMe = document.getElementById('rememberMe').checked;
             
+            console.log('[v0] Login attempt - Student Number:', studentNumber, 'PIN:', pin);
+            
             const students = JSON.parse(localStorage.getItem('vut_students') || '[]');
+            console.log('[v0] Total students in database:', students.length);
+            
             const student = students.find(s => s.studentNumber === studentNumber && s.pin === pin);
             
             const messageDiv = document.getElementById('loginMessage');
             
             if (student) {
+                console.log('[v0] Login successful!');
                 localStorage.setItem('vut_current_student', JSON.stringify(student));
                 if (rememberMe) {
                     localStorage.setItem('vut_remember', studentNumber);
                 }
                 window.location.href = 'dashboard.html';
             } else {
+                console.log('[v0] Login failed - Invalid credentials');
                 messageDiv.className = 'message error';
                 messageDiv.textContent = 'Invalid student number or PIN. Please try again.';
                 messageDiv.style.display = 'block';
