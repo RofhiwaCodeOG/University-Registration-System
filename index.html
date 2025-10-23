@@ -47,6 +47,8 @@
             
             <div class="login-footer">
                 <a href="forgot-password.html" class="forgot-link">Forgot your PIN?</a>
+                <!-- Added admin login link -->
+                <a href="admin-login.html" class="forgot-link" style="margin-left: 20px;">Admin Login</a>
             </div>
         </div>
         
@@ -65,59 +67,6 @@
         </div>
     </footer>
     
-    <script src="script.js"></script>
-    <script>
-        console.log('[v0] Initializing login page...');
-        
-        // Initialize demo data
-        initializeDemoData();
-        
-        // Verify demo data was created
-        const students = JSON.parse(localStorage.getItem('vut_students') || '[]');
-        console.log('[v0] Students in localStorage:', students.length);
-        if (students.length > 0) {
-            console.log('[v0] Demo student number:', students[0].studentNumber);
-            console.log('[v0] Demo PIN:', students[0].pin);
-        }
-        
-        // Handle login
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const studentNumber = document.getElementById('studentNumber').value.trim();
-            const pin = document.getElementById('pin').value.trim();
-            const rememberMe = document.getElementById('rememberMe').checked;
-            
-            console.log('[v0] Login attempt - Student Number:', studentNumber, 'PIN:', pin);
-            
-            const students = JSON.parse(localStorage.getItem('vut_students') || '[]');
-            console.log('[v0] Total students in database:', students.length);
-            
-            const student = students.find(s => s.studentNumber === studentNumber && s.pin === pin);
-            
-            const messageDiv = document.getElementById('loginMessage');
-            
-            if (student) {
-                console.log('[v0] Login successful!');
-                localStorage.setItem('vut_current_student', JSON.stringify(student));
-                if (rememberMe) {
-                    localStorage.setItem('vut_remember', studentNumber);
-                }
-                window.location.href = 'dashboard.html';
-            } else {
-                console.log('[v0] Login failed - Invalid credentials');
-                messageDiv.className = 'message error';
-                messageDiv.textContent = 'Invalid student number or PIN. Please try again.';
-                messageDiv.style.display = 'block';
-            }
-        });
-        
-        // Auto-fill if remembered
-        const remembered = localStorage.getItem('vut_remember');
-        if (remembered) {
-            document.getElementById('studentNumber').value = remembered;
-            document.getElementById('rememberMe').checked = true;
-        }
-    </script>
+    <script src="auth.js"></script>
 </body>
 </html>
