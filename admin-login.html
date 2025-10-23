@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VUT iEnabler - Admin Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <img src="images/vut-logo.jpg" alt="VUT Logo" class="login-logo">
+                <h1>VAAL UNIVERSITY OF TECHNOLOGY</h1>
+                <p class="tagline">Inspiring thought. Shaping talent.</p>
+            </div>
+            
+            <h2>Admin Login</h2>
+            
+            <div style="background: #fff3cd; border: 1px solid #ffc107; padding: 10px; margin-bottom: 15px; border-radius: 4px; font-size: 14px;">
+                <strong>Default Admin:</strong><br>
+                Username: <strong>admin</strong><br>
+                Password: <strong>admin123</strong>
+            </div>
+            
+            <form id="adminLoginForm" class="login-form">
+                <div class="form-group">
+                    <input type="text" id="adminUsername" placeholder="Username" required>
+                </div>
+                
+                <div class="form-group">
+                    <input type="password" id="adminPassword" placeholder="Password" required>
+                </div>
+                
+                <div id="loginMessage" class="message" style="display: none;"></div>
+                
+                <button type="submit" class="btn-primary btn-block">Log In</button>
+            </form>
+            
+            <div class="login-footer">
+                <a href="index.html" class="forgot-link">← Back to Student Login</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="auth-footer">
+        <div class="footer-links">
+            <a href="#">Contact Us</a>
+            <a href="#">About Us</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+    </footer>
+    
+    <script src="auth.js"></script>
+    <script>
+        // Initialize admin credentials
+        if (!localStorage.getItem('vut_admin_password')) {
+            localStorage.setItem('vut_admin_password', 'admin123');
+        }
+        
+        document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('adminUsername').value.trim();
+            const password = document.getElementById('adminPassword').value.trim();
+            const storedPassword = localStorage.getItem('vut_admin_password');
+            
+            const messageDiv = document.getElementById('loginMessage');
+            
+            if (username === 'admin' && password === storedPassword) {
+                localStorage.setItem('vut_admin_logged_in', 'true');
+                window.location.href = 'admin-panel.html';
+            } else {
+                messageDiv.className = 'message error';
+                messageDiv.textContent = 'Invalid username or password.';
+                messageDiv.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
